@@ -16,3 +16,9 @@ p.texto-carousel {
 .footer-text{
     color: white;
 }
+
+.bg-img{
+  background-image: url(../img/bg-login.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
