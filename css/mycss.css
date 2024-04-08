@@ -3,6 +3,11 @@
   height: 45vw;
 }
 
+.img-index{
+  width: 50vw;
+  height: 50vw;
+}
+
 p.texto-carousel {
   color: white;
   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
