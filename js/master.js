@@ -1,5 +1,5 @@
 //iframeResizer
-iFrameResize({ log: false }, "#my_navbar");
+iFrameResize({ log: false }, "#masterNavbar");
 
 //iframeResizer
 iFrameResize({ log: false }, "#masterFooter");
