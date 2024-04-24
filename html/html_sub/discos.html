@@ -1,580 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music&Me</title>
-    <link rel="stylesheet" href="../../css/mycss.css" />
-    <link rel="icon" href="../../favicon.ico" sizes="16x16" />
-  </head>
 
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-      <div class="container-fluid">
-        <img
-          src="../../favicon.ico"
-          alt="Logo"
-          width="40"
-          height="40"
-          class="d-inline-block align-text-top"
-        />
-        <a class="navbar-brand" href="../../index.html" target="_top"
-          >Music&Me</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="../../index.html"
-                target="_top"
-                >Inicio</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="discos.html" target="_top">Discos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="instrumentos.html" target="_top"
-                >Instrumentos</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="accesorios.html" target="_top"
-                >Accesorios</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../index.html#contacto" target="_top"
-                >Contacto</a
-              >
-            </li>
-            <li class="nav-item"></li>
-          </ul>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="../carro.html" target="_top"
-                ><img src="../../img/svg/cart.svg" alt="..." height="24" />
-                Carro</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../login.html" target="_top"
-                ><img
-                  src="../../img/svg/person-circle.svg"
-                  alt="..."
-                  height="24"
-                />
-                Login</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <br />
-    <!-- FIN NAVBAR -->
-    <div class="container-xl">
-      <div class="dropup-center dropup">
-        <button
-          class="btn btn-warning dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Generos de Discos
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#pops">Discos Pop</a></li>
-          <li><a class="dropdown-item" href="#rock">Discos Rock</a></li>
-          <li><a class="dropdown-item" href="#">Action three</a></li>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music&Me</title>
+  <link rel="stylesheet" href="../../css/mycss.css" />
+  <link rel="icon" href="../../favicon.ico" sizes="16x16" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <div class="container-fluid">
+      <img src="../../favicon.ico" alt="Logo" width="40" height="40" class="d-inline-block align-text-top" />
+      <a class="navbar-brand" href="../../index.html" target="_top">Music&Me</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../../index.html" target="_top">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="discos.html" target="_top">Discos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="instrumentos.html" target="_top">Instrumentos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="accesorios.html" target="_top">Accesorios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../index.html#contacto" target="_top">Contacto</a>
+          </li>
+          <li class="nav-item"></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../carro.html" target="_top"><img src="../../img/svg/cart.svg" alt="..."
+                height="24" />
+              Carro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../login.html" target="_top"><img src="../../img/svg/person-circle.svg" alt="..."
+                height="24" />
+              Login</a>
+          </li>
         </ul>
       </div>
     </div>
-    <br />
-    <br />
-    <!--POP-->
-    <a name="pops"></a>
-    <div class="p-3 mb-2 bg-black container text-warning text-center">POP</div>
-    <div class="container-xl">
-      <div class="row justify-content-center">
-        <div class="col-md-auto ">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/alicia_keys_song_in_a_minor.jpg"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Songs in A minor- Alicia keys</h5>
-              <p class="card-text">
-                Precio:$$$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
-          </div>
-          <br />
-        </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/michael_jackson_thriller.png"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Thriller - Michael Jackson</h5>
-              <p class="card-text">
-                Precio:$$$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
-          </div>
-          <br />
-        </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/older.jpg"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Older - George Michael</h5>
-              <p class="card-text">
-                Precio:$$$$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+  </nav>
+  <br />
+  <!-- FIN NAVBAR -->
+  <div class="container-xl">
+    <div class="dropup-center dropup">
+      <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Generos de Discos
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#pops">Discos Pop</a></li>
+        <li><a class="dropdown-item" href="#rock">Discos Rock</a></li>
+        <li><a class="dropdown-item" href="#">Action three</a></li>
+      </ul>
+    </div>
+  </div>
+  <br />
+  <br />
+  <!--POP-->
+  <a name="pops"></a>
+  <div class="p-3 mb-2 bg-black container text-warning text-center">POP</div>
+  <div class="container-xl">
+    <div class="row justify-content-center">
+      <div class="col-md-auto ">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/alicia_keys_song_in_a_minor.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Songs in A minor- Alicia keys</h5>
+            <p class="card-text">
+              Precio:$$$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
         </div>
         <br />
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/off_the_wall.jpg"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Off the wall - Michael Jackson</h5>
-              <p class="card-text">
-                Precio:$$$$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/michael_jackson_thriller.png" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Thriller - Michael Jackson</h5>
+            <p class="card-text">
+              Precio:$$$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/bruno_mars_magic.png"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">24K Magic - Bruno Mars</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/older.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Older - George Michael</h5>
+            <p class="card-text">
+              Precio:$$$$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/davis_bowie_aladdin_sane.jpg"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Aladdin sane - David Bowie</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+      </div>
+      <br />
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/off_the_wall.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Off the wall - Michael Jackson</h5>
+            <p class="card-text">
+              Precio:$$$$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href=""class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOtw">Detalles</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/sleeping_with_the_past.webp"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Sleeping white the past - Elton John</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/bruno_mars_magic.png" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">24K Magic - Bruno Mars</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/wham_make_it_big.jpg"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Make it big- Wham!</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/davis_bowie_aladdin_sane.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Aladdin sane - David Bowie</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
         </div>
-        <!--FIN POP-->
-        <!--Inicio Rock-->
-        <a name="rock"></a>
-        <div class="p-3 mb-2 bg-black text-warning text-center">ROCK</div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/queen2.webp"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Queen II - Queen</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/sleeping_with_the_past.webp" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Sleeping white the past - Elton John</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/led-zeppelin-iv-5e6def5e9133b-jpg.webp"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Led Zeppelin IV - Led Zeppelin</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/wham_make_it_big.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Make it big- Wham!</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/Beatles_-_Abbey_Road.jpg"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Abbey Road - The Beatles</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <!--FIN POP-->
+      <!--Inicio Rock-->
+      <a name="rock"></a>
+      <div class="p-3 mb-2 bg-black text-warning text-center">ROCK</div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/queen2.webp" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Queen II - Queen</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/pink-floyd-the-dark-side-of-the-moon.jpg"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">The darkside of the moon - Pink Floyd</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/led-zeppelin-iv-5e6def5e9133b-jpg.webp" width="50px" class="card-img-top"
+            alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Led Zeppelin IV - Led Zeppelin</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/PearlJam-Ten2.jpg"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Ten - Pearl Jam</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/Beatles_-_Abbey_Road.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Abbey Road - The Beatles</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/nevermind.jpg"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Nevermind - Nirvana</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/pink-floyd-the-dark-side-of-the-moon.jpg" width="50px" class="card-img-top"
+            alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">The darkside of the moon - Pink Floyd</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/ACDC_Back_in_Black_cover.svg.png"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Back in Black - AC/DC</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/PearlJam-Ten2.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Ten - Pearl Jam</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
         </div>
-        <div class="col-md-auto">
-          <div class="card mx-auto" style="width: 18rem">
-            <img
-              src="../../img/img_disc/ironmaiden.jpg"
-              width="50px"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">The number of the beast - Iron Maiden</h5>
-              <p class="card-text">
-                Precio: $$$$$$$
-              </p>
-              <a href="#" class="btn btn-success">Añadir al carrito</a>
-            </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/nevermind.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Nevermind - Nirvana</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
           </div>
-          <br />
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/ACDC_Back_in_Black_cover.svg.png" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Back in Black - AC/DC</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../../img/img_disc/ironmaiden.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">The number of the beast - Iron Maiden</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <br />
+  <a name="contacto"></a>
+  <footer class="footer-bg">
+    <br />
+    <div class="container" --bs-dark-bg-subtle>
+      <div class="row">
+        <div class="col-lg-4">
+          <h3>Enlaces</h3>
+          <ul>
+            <li><a target="_top" href="../../index.html">Inicio</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li>
+              <!-- Trigger modal -->
+              <a href="# " data-bs-toggle="modal" data-bs-target="#exampleModal">Suscribirse</a>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        Suscribirse
+                      </h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-3">
+                          <label for="InputEmail1" class="form-label">Correo electronico</label>
+                          <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp"
+                            placeholder="correo@ejemplo.com" />
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        Cancelar
+                      </button>
+                      <button type="button" class="btn btn-primary">
+                        Guardar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <!-- CONTACTO -->
+              <a href="#" data-bs-toggle="modal" data-bs-target="#contactoModal">Contacto</a>
+
+              <!-- Modal CONTACTO-->
+              <div class="modal fade" id="contactoModal" tabindex="-1" aria-labelledby="contactoModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="contactoModalLabel">
+                        Contacto
+                      </h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-3">
+                          <label for="recipient-name" class="col-form-label">Asunto:</label>
+                          <input type="text" class="form-control" id="recipient-name" />
+                        </div>
+                        <div class="mb-3">
+                          <label for="message-text" class="col-form-label">Cuerpo:</label>
+                          <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        Cancelar
+                      </button>
+                      <button type="button" class="btn btn-primary">
+                        Guardar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h3>Contacto</h3>
+          <p>Correo electrónico: musicandme@contacto.com</p>
+          <p>Teléfono: 123-456-7890</p>
+        </div>
+        <div class="col-lg-4">
+          <h3>Derechos de autor</h3>
+          <p>(c) 2024 Music&Me. Todos los derechos reservados.</p>
         </div>
       </div>
     </div>
-    <!-- FOOTER -->
-    <br />
-    <a name="contacto"></a>
-    <footer class="footer-bg">
-      <br />
-      <div class="container" --bs-dark-bg-subtle>
-        <div class="row">
-          <div class="col-lg-4">
-            <h3>Enlaces</h3>
-            <ul>
-              <li><a target="_top" href="../../index.html">Inicio</a></li>
-              <li><a href="#">Acerca de</a></li>
-              <li>
-                <!-- Trigger modal -->
-                <a
-                  href="# "
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                  >Suscribirse</a
-                >
+  </footer>
+  <!-- FIN FOOTER -->
+  <!--MODALS PARA DISCOS-->
+  <!--modal older-->
+  <div class="modal fade" id="modOlder" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="contactoModalLabel">
+            Contacto
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">George Michael - Older:</label>
+              <p>
+                Older es el tercer álbum de estudio de George Michael, publicado el 14 de mayo de 1996. El álbum produjo
+                un sorprendente ramillete de sencillos exitosos, convirtiendo a George Michael en el primer artista en
+                la historia de la lista de éxitos del Reino Unido en tener seis sencillos top 3 de un solo álbum. El
+                disco debutó en el número 1 en ventas en el Reino Unido y otros países europeos. A vendido 1.8 millones
+                de
+                copias en su tierra natal y más de 8 millones a nivel mundial.
+              </p>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Preview de cancion más reproducida del disco:</label>
+              <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/6SaeXxdt0Id6ZzmX0ZGTQK?utm_source=generator" width="100%"
+                height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+          </form>
+        </div>
 
-                <!-- Modal -->
-                <div
-                  class="modal fade"
-                  id="exampleModal"
-                  tabindex="-1"
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">
-                          Suscribirse
-                        </h1>
-                        <button
-                          type="button"
-                          class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
-                          <div class="mb-3">
-                            <label for="InputEmail1" class="form-label"
-                              >Correo electronico</label
-                            >
-                            <input
-                              type="email"
-                              class="form-control"
-                              id="InputEmail1"
-                              aria-describedby="emailHelp"
-                              placeholder="correo@ejemplo.com"
-                            />
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-danger"
-                          data-bs-dismiss="modal"
-                        >
-                          Cancelar
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                          Guardar
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <!-- CONTACTO -->
-                <a
-                  href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#contactoModal"
-                  >Contacto</a
-                >
-
-                <!-- Modal CONTACTO-->
-                <div
-                  class="modal fade"
-                  id="contactoModal"
-                  tabindex="-1"
-                  aria-labelledby="contactoModalLabel"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="contactoModalLabel">
-                          Contacto
-                        </h1>
-                        <button
-                          type="button"
-                          class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
-                          <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label"
-                              >Asunto:</label
-                            >
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="recipient-name"
-                            />
-                          </div>
-                          <div class="mb-3">
-                            <label for="message-text" class="col-form-label"
-                              >Cuerpo:</label
-                            >
-                            <textarea
-                              class="form-control"
-                              id="message-text"
-                            ></textarea>
-                          </div>
-                        </form>
-                      </div>
-
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-danger"
-                          data-bs-dismiss="modal"
-                        >
-                          Cancelar
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                          Guardar
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-4">
-            <h3>Contacto</h3>
-            <p>Correo electrónico: musicandme@contacto.com</p>
-            <p>Teléfono: 123-456-7890</p>
-          </div>
-          <div class="col-lg-4">
-            <h3>Derechos de autor</h3>
-            <p>(c) 2024 Music&Me. Todos los derechos reservados.</p>
-          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary">
+            Comprar
+          </button>
         </div>
       </div>
-    </footer>
-    <!-- FIN FOOTER -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    </div>
+  </div>
+  <!--FIN MODAL OLDER-->
+  <!--Modal OFF THE WALL-->
+  <div class="modal fade" id="modOtw" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="contactoModalLabel">
+            Contacto
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Off the wall- Michael Jackson:</label>
+              <p>
+                Off the Wall es el quinto álbum de estudio del cantante estadounidense Michael Jackson. Fue lanzado el
+                10 de agosto de 1979 por Epic Records. Con alrededor de 20 millones de copias vendidas en todo el
+                mundo,​ es uno de los 100 discos más vendidos de la historia y un hito imprescindible de la música
+                disco.
+              </p>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Preview de cancion más reproducida del disco:</label>
+              <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7oOOI85fVQvVnK5ynNMdW7?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary">
+            Comprar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FIN MODAL OFF THE WALL-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
