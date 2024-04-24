@@ -1,9 +1,13 @@
+#my_navbar {
+  min-width: 100%;
+}
+
 .imgCarrousel {
   width: 100%;
   height: 45vw;
 }
 
-.img-index{
+.img-index {
   width: 50vw;
   height: 50vw;
 }
