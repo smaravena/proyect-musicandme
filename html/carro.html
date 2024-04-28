@@ -13,31 +13,53 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- VALIDACIONES -->
     <script type="text/javascript">
-      //Validaciones de campos
       $(document).ready(function () {
+        var campoError = "El campo no puede estar vacio";
         $("#error").hide();
         $("#errorNombre").hide();
+        $("#errorEmail").hide();
+        $("#errorApellido").hide();
         $("#nombre").focusout(function () {
           if ($("#nombre").val().trim().length == 0) {
-            mensaje = "El nombre está en blanco";
-            $("#errorNombre").html(mensaje);
+            $("#errorNombre").html(campoError);
             $("#errorNombre").show();
+          } else if ($("#nombre").val().trim().length > 0) {
+            $("#errorNombre").hide();
+          }
+        });
+        $("#email").focusout(function () {
+          if ($("#email").val().trim().length == 0) {
+            $("#errorEmail").html(campoError);
+            $("#errorEmail").show();
+          } else if ($("#email").val().trim().length > 0) {
+            $("#errorEmail").hide();
+          }
+        });
+        $("#apellido").focusout(function () {
+          if ($("#apellido").val().trim().length == 0) {
+            $("#errorApellido").html(campoError);
+            $("#errorApellido").show();
+          } else if ($("#apellido").val().trim().length > 0) {
+            $("#errorApellido").hide();
           }
         });
         $("#formulario").submit(function () {
-          var mensaje = "";
+          var campoError = "";
           if ($("#nombre").val().trim().length == 0) {
-            mensaje = "El nombre está en blanco";
-            $("#errorNombre").html(mensaje);
+            campoError = "El nombre está en blanco";
+            $("#errorNombre").html(campoError);
             $("#errorNombre").show();
           }
           if ($("#email").val().trim().length == 0) {
-            mensaje = mensaje + "El email está en blanco";
+            campoError = campoError + "El email está en blanco";
           }
-          if (mensaje != "") {
-            $("#error").html(mensaje);
+          if (campoError != "") {
+            $("#error").html(campoError);
             $("#error").show();
             event.preventDefault();
           }
@@ -47,7 +69,12 @@
   </head>
   <body>
     <!-- navbar -->
-    <iframe class="sticky-top" id="masterNavbar" src="navbar.html" frameborder="0"></iframe>
+    <iframe
+      class="sticky-top"
+      id="masterNavbar"
+      src="navbar.html"
+      frameborder="0"
+    ></iframe>
 
     <!-- BODY -->
     <div class="container">
@@ -65,14 +92,27 @@
                   placeholder="Nombre"
                 />
               </div>
+              <div class="mb-3">
+                <div
+                  id="errorNombre"
+                  class="alert alert-danger"
+                  role="alert"
+                ></div>
+              </div>
               <div class="col">
                 <input
                   type="text"
                   class="form-control"
+                  id="apellido"
                   name="apellido"
                   placeholder="Apellido"
                 />
               </div>
+              <div
+                id="errorApellido"
+                class="alert alert-danger"
+                role="alert"
+              ></div>
             </div>
           </div>
 
@@ -87,6 +127,13 @@
                 name="email"
                 class="form-control"
               />
+            </div>
+            <div class="mb-3">
+              <div
+                id="errorEmail"
+                class="alert alert-danger"
+                role="alert"
+              ></div>
             </div>
           </div>
 
@@ -175,6 +222,7 @@
               id="limpiar"
               value="Limpiar"
             />
+            <div id="error" class="alert alert-danger" role="alert"></div>
           </div>
         </form>
       </div>
