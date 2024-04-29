@@ -51,12 +51,26 @@
         $("#formulario").submit(function () {
           var campoError = "";
           if ($("#nombre").val().trim().length == 0) {
-            campoError = "El nombre está en blanco";
+            campoError = "El NOMBRE está en blanco";
             $("#errorNombre").html(campoError);
             $("#errorNombre").show();
           }
+          if ($("#apellido").val().trim().length == 0) {
+            campoError = "El APELLIDO está en blanco";
+            $("#errorApellido").html(campoError);
+            $("#errorApellido").show();
+          }
           if ($("#email").val().trim().length == 0) {
-            campoError = campoError + "El email está en blanco";
+            campoError = "El EMAIL está en blanco";
+            $("#errorEmail").html(campoError);
+            $("#errorEmail").show();
+          }
+          if (
+            $("#email").val().trim().length == 0 ||
+            $("#apellido").val().trim().length == 0 ||
+            $("#email").val().trim().length == 0
+          ) {
+            campoError = "Hay campos obligatorios vacios";
           }
           if (campoError != "") {
             $("#error").html(campoError);
@@ -82,7 +96,7 @@
         <form method="POST" action="procesar.php" id="formulario">
           <div class="mb-3">
             <div class="row">
-              <label for="nombre" class="form-label">Nombre</label>
+              <label for="nombre" class="form-label">Nombre*</label>
               <div class="col">
                 <input
                   type="text"
@@ -108,18 +122,20 @@
                   placeholder="Apellido"
                 />
               </div>
-              <div
-                id="errorApellido"
-                class="alert alert-danger"
-                role="alert"
-              ></div>
+              <div class="mb-3">
+                <div
+                  id="errorApellido"
+                  class="alert alert-danger"
+                  role="alert"
+                ></div>
+              </div>
             </div>
           </div>
 
           <div class="row mb-3">
             <div class="col">
               <label for="email" class="form-label"
-                >Correo Electr&oacute;nico</label
+                >Correo Electr&oacute;nico*</label
               >
               <input
                 type="email"
@@ -167,7 +183,7 @@
           <div class="form-floating mb-3">
             <div class="col">
               <label for="direccion" class="form-label"
-                >Direccion particular</label
+                >Direccion particular*</label
               >
               <input
                 type="text"
@@ -181,7 +197,7 @@
           <div class="form-floating mb-3">
             <div class="row">
               <label for="direccion" class="form-label"
-                >Direccion departamento</label
+                >Direccion departamento*</label
               >
               <div class="col">
                 <input
