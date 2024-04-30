@@ -299,7 +299,7 @@
   <iframe id="masterFooter" src="footer.html" frameborder="0"></iframe>
   <!--Modal DETALLES INSTRUMENTOS-->
   <!--MODAL ACUSTIC BILBAO-->
-  <div class="modal fade" id="modBilbao" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modBilbao" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true" onfocusout="stopVideo('modBilbao')">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -356,7 +356,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="stopVideo('modBilbao')">
             Cancelar
           </button>
           <button type="button" class="btn btn-primary">
@@ -368,7 +368,7 @@
   </div>
   <!--FIN MODAL BILBAO-->
   <!--MODAL C40-->
-  <div class="modal fade" id="modYamahac40" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modYamahac40" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true" onfocusout="stopVideo('modYamahac40')">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -415,7 +415,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="stopVideo('modYamahac40')">
             Cancelar
           </button>
           <button type="button" class="btn btn-primary">
