@@ -12,20 +12,20 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <script class="text/javascript">
-      function stopMusic(modalId) {
-        var modal = document.getElementById(modalId);
-        var iframe = modal.querySelector('iframe');
-        var musicSrc = iframe.src;
-        //PAUSAR IFRAME DE SPOTIFY
-        iframe.src = musicSrc;
-      }
-      var modals = document.querySelectorAll('.modal');
-      modals.forEach(function(modal) {
-      modal.addEventListener('focusout', function() {
-      stopVideo(modal.id);
+  <script class="text/javascript">
+    function stopMusic(modalId) {
+      var modal = document.getElementById(modalId);
+      var iframe = modal.querySelector('iframe');
+      var musicSrc = iframe.src;
+      //PAUSAR IFRAME DE SPOTIFY
+      iframe.src = musicSrc;
+    }
+    var modals = document.querySelectorAll('.modal');
+    modals.forEach(function (modal) {
+      modal.addEventListener('focusout', function () {
+        stopVideo(modal.id);
+      });
     });
-  });
   </script>
 </head>
 
@@ -41,7 +41,7 @@
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#pops">Discos Pop</a></li>
         <li><a class="dropdown-item" href="#rock">Discos Rock</a></li>
-        <li><a class="dropdown-item" href="#">Action three</a></li>
+        <li><a class="dropdown-item" href="#latinM">Discos Latinos</a></li>
       </ul>
     </div>
   </div>
@@ -75,6 +75,7 @@
               Precio:$$$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modThriller">Detalles</a>
           </div>
         </div>
         <br />
@@ -116,6 +117,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#mod24k">Detalles</a>
           </div>
         </div>
         <br />
@@ -129,6 +131,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modAS">Detalles</a>
           </div>
         </div>
         <br />
@@ -142,6 +145,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modSWTP">Detalles</a>
           </div>
         </div>
         <br />
@@ -155,6 +159,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modMIB">Detalles</a>
           </div>
         </div>
         <br />
@@ -172,6 +177,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modQ2">Detalles</a>
           </div>
         </div>
         <br />
@@ -186,6 +192,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
           </div>
         </div>
         <br />
@@ -199,6 +206,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
           </div>
         </div>
         <br />
@@ -213,6 +221,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
           </div>
         </div>
         <br />
@@ -226,6 +235,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
           </div>
         </div>
         <br />
@@ -239,6 +249,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
           </div>
         </div>
         <br />
@@ -252,6 +263,7 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
           </div>
         </div>
         <br />
@@ -265,16 +277,133 @@
               Precio: $$$$$$$
             </p>
             <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <!--FIN ROCK-->
+      <!-- INICIO LATIN MUSIC-->
+      <a name="latinM"></a>
+      <div class="p-3 mb-2 bg-black text-warning text-center"><strong>MÚSICA LATINA</strong></div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../img/img_disc/chayanneatado.webp" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Atado a tu amor - Chayanne</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../img/img_disc/barriofino.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Barrio Fino - Daddy Yankee</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../img/img_disc/trozosdemialma.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Trozos de mi alma - Marco Antonio Solís</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../img/img_disc/Selena_-_Amor_Prohibido.png" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Amor Prohibido - Selena</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../img/img_disc/sentimientos.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Sentimientos - Charlie Zaa</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../img/img_disc/20anios.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">20 Años - Luis Miguel</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../img/img_disc/grandesexitos.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Grandes Exitos - La ley</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img src="../img/img_disc/donde_estan_los_ladrones.jpg" width="50px" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">¿ D&oacute;nde estan los ladrones ? - Shakira</h5>
+            <p class="card-text">
+              Precio: $$$$$$$
+            </p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+            <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modOlder">Detalles</a>
           </div>
         </div>
         <br />
       </div>
     </div>
   </div>
-  
   <!--MODALS PARA DISCOS-->
+  <!--MODALS POP-->
   <!--modal older-->
-  <div class="modal fade" id="modOlder" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modOlder" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true"
+    onfocus="stopMusic('modOlder')">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -282,7 +411,8 @@
               DISCO OLDER (GEORGE MICHAEL)
             </strong>
           </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="stopMusic('modOlder')"></button>
         </div>
         <div class="modal-body">
           <form>
@@ -322,19 +452,22 @@
   </div>
   <!--FIN MODAL OLDER-->
   <!--Modal OFF THE WALL-->
-  <div class="modal fade" id="modOtw" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modOtw" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true"
+    onfocus="stopMusic('modOtw')">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="contactoModalLabel">
             <strong>DISCO OFF THE WALL (MICHAEL JACKSON)</strong>
           </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="stopMusic('modOtw')"></button>
         </div>
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="recipient-name" class="col-form-label"><strong>Off the wall - Michael Jackson:</strong></label>
+              <label for="recipient-name" class="col-form-label"><strong>Off the wall - Michael
+                  Jackson:</strong></label>
               <p>
                 Off the Wall es el quinto álbum de estudio del cantante estadounidense Michael Jackson. Fue lanzado el
                 10 de agosto de 1979 por Epic Records. Con alrededor de 20 millones de copias vendidas en todo el
@@ -353,9 +486,8 @@
             </div>
           </form>
         </div>
-
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="stopMusic('modOtw')">
             Cancelar
           </button>
           <button type="button" class="btn btn-primary">
@@ -367,19 +499,22 @@
   </div>
   <!--FIN MODAL OFF THE WALL-->
   <!-- MODAL BABY ONE MORE TIME-->
-  <div class="modal fade" id="modBomt" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true" onfocus="stopMusic('modBomt')">
+  <div class="modal fade" id="modBomt" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true"
+    onfocus="stopMusic('modBomt')">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="contactoModalLabel">
             <strong>DISCO BABY ONE MORE TIME (BRITNEY)</strong>
           </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="stopMusic('modBomt')"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="stopMusic('modBomt')"></button>
         </div>
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="recipient-name" class="col-form-label"><strong>Baby oone more time -  Britney Spears:</strong></label>
+              <label for="recipient-name" class="col-form-label"><strong>Baby one more time - Britney
+                  Spears:</strong></label>
               <p>
                 Baby One More Time es el primer álbum de estudio de la cantante estadounidense Britney Spears, publicado
                 el 12 de enero de 1999 por el sello discográfico Jive Records. Ello, cuando la cantante se encontraba en
@@ -411,10 +546,299 @@
       </div>
     </div>
   </div>
-
+  <!--MODAL THRILLER-->
+  <div class="modal fade" id="modThriller" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true"
+    onfocus="stopMusic('modThriller')">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="contactoModalLabel">
+            <strong>DISCO THRILLER (MICHAEL JACKSON)</strong>
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="stopMusic('modThriller')"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label"><strong>Thriller - Michael Jackson:</strong></label>
+              <p>
+                Thriller es el sexto álbum de estudio del cantante estadounidense Michael Jackson. Fue lanzado el 29 de
+                noviembre de 1982 por Epic Records.
+                Siete de las nueve canciones del álbum fueron lanzadas como sencillos: «Beat It», «Billie Jean», «Wanna
+                Be Startin' Somethin'», «P.Y.T. (Pretty Young Thing)», «The Girl Is Mine», «Human Nature» y «Thriller»,
+                todos ellos llegaron a los diez primeros puestos en el Billboard Hot 100,con lo que estableció el
+                récord del artista con más canciones top diez de un mismo álbum, con «Beat It» y «Billie Jean»
+                alcanzando el número uno.
+              </p>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label"><STRONG>Preview de cancion más reproducida del
+                  disco:</STRONG></label>
+              <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/7J1uxwnxfQLu4APicE5Rnj?utm_source=generator" width="100%"
+                height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="stopMusic('modThriller')">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary">
+            Comprar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FIN MODAL THRILLER-->
+  <!--MODAL 2K MAGIC-->
+  <div class="modal fade" id="mod24k" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true"
+    onfocus="stopMusic('mod24k')">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="contactoModalLabel">
+            <strong>DISCO 24K MAGIC (BRUNO MARS)</strong>
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="stopMusic('mod24k')"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label"><strong>24K Magic - Bruno Mars:</strong></label>
+              <p>
+                Fue lanzado el 18 de noviembre de 2016 por Atlantic Records. Registrando hasta el 15 de marzo de 2017
+                más de un millón novecientas mil copias en todo el mundo. La pista del mismo título fue lanzada como el
+                primer sencillo del disco el 7 de octubre de 2016, y ha llegado al puesto número cuatro del conteo de
+                éxitos del Billboard Hot 100.
+              </p>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label"><STRONG>Preview de cancion más reproducida del
+                  disco:</STRONG></label>
+              <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/6b8Be6ljOzmkOmFslEb23P?utm_source=generator" width="100%"
+                height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="stopMusic('mod24k')">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary">
+            Comprar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FIN 24K-->
+  <div class="modal fade" id="modAS" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true"
+    onfocus="stopMusic('modAS')">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="contactoModalLabel">
+            <strong>DISCO Aladdin Sane (David Bowie)</strong>
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="stopMusic('modAS')"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label"><strong>Aladdin Sane - David Bowie :</strong></label>
+              <p>
+                Aladdin Sane es el título del sexto álbum de estudio del artista británico David Bowie, publicado por la
+                discográfica RCA Records en el año 1973. Es el primer álbum que publicó tras The Rise and Fall of Ziggy
+                Stardust and the Spiders from Mars (1972), considerado como uno de los mejores de su carrera, y el
+                primero que escribió desde un genuino estatus de estrella pop.
+              </p>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label"><STRONG>Preview de cancion más reproducida del
+                  disco:</STRONG></label>
+              <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/6uZtMNTfU5u8w6fsnXeOdb?utm_source=generator" width="100%"
+                height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="stopMusic('modAS')">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary">
+            Comprar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Fin MODAL ALADDIN SANE-->
+  <!--MODAL SLEEPING WITH THE PAST-->
+  <div class="modal fade" id="modSWTP" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true"
+    onfocus="stopMusic('modSWTP')">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="contactoModalLabel">
+            <strong>DISCO SLEEPING WITH THE PAST (ELTON JOHN)</strong>
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="stopMusic('modSWTP')"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label"><strong>Sleeping with the past - Elton John
+                  :</strong></label>
+              <p>
+                Fue lanzado al mercado por la compañía discográfica The Rocket Record Company el 29 de agosto de 1989,
+                el álbum fue producido por Chris Thomas.
+                Fue grabado entre noviembre y diciembre de 1988 en los estudios Puk de Randers, Dinamarca, y
+                fue lanzado al mercado por The Rocket Record Company el 29 de agosto del año siguiente. Fue su álbum
+                mejor vendido en Dinamarca, y está dedicado a Bernie Taupin (a pesar de que el mismo Taupin colabora en
+                la composición); el éxito del disco fue su primer sencillo, "Sacrifice".
+              </p>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label"><STRONG>Preview de cancion más reproducida del
+                  disco:</STRONG></label>
+              <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/0e3yhVeNaTfKIWQRw9U9sY?utm_source=generator" width="100%"
+                height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="stopMusic('modSWTP')">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary">
+            Comprar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FIN MODAL SLEEPING WITH THE PAST-->
+  <!--MODAL MAKE IT BIG -->
+  <div class="modal fade" id="modMIB" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true"
+    onfocus="stopMusic('modMIB')">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="contactoModalLabel">
+            <strong>DISCO MAKE IT BIG (WHAM!)</strong>
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="stopMusic('modMIB')"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label"><strong>Make it big - Wham!
+                  :</strong></label>
+              <p>
+                Make It Big es el segundo álbum de estudio del dúo pop británico Wham!., publicado el 23 de octubre de
+                1984 Columbia. Fue Producido por George Michael. Recibió la aclamación de la crítica, debutando en la
+                posición #1 en Reino Unido y en los Estados Unidos. De este se desprenden cuatro sencillos exitosos
+                —todos liderando los rankings musicales— Wake Me Up Before You Go-Go, Careless Whisper, (considerado
+                como un esfuerzo en solitario de Michael en su lanzamiento como sencillo) Freedom y Everything She
+                Wants.
+              </p>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label"><STRONG>Preview de cancion más reproducida del
+                  disco:</STRONG></label>
+              <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/0ikz6tENMONtK6qGkOrU3c?utm_source=generator" width="100%"
+                height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="stopMusic('modMIB')">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary">
+            Comprar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FIN MAKE IT BIG-->
+  <!--FIN MODALS SECCION POP-->
+  <!--INICIO MODALS ROCK-->
+  <!--MODAL QUEEN 2-->
+  <div class="modal fade" id="modQ2" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true"
+    onfocus="stopMusic('modQ2')">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="contactoModalLabel">
+            <strong>DISCO Queen II (QUEEN)</strong>
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="stopMusic('modQ2')"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label"><strong>Queen II - Queen
+                  :</strong></label>
+              <p>
+                Queen II es el segundo álbum de estudio por la banda británica Queen. Fue publicado el 8 de marzo de
+                1974 por EMI Records en el Reino Unido y por Elektra Records en los Estados Unidos. Fue grabado en los
+                estudios Trident, Londres en agosto de 1973, coproducido por Roy Thomas Baker y Robin Geoffrey Cable.
+                Originalmente producido en formato de Long Play en vinilo, se lanzó por primera vez en 1974. La
+                terminación del álbum coincidió con la crisis del petróleo de 1973 y por lo tanto, las medidas de ahorro
+                de energía influyeron en el retraso del lanzamiento del disco por varios meses debido a que la industria
+                del plástico depende en gran parte de derivados del petróleo.
+              </p>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label"><STRONG>Preview de cancion más reproducida del
+                  disco:</STRONG></label>
+              <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/1qP7KmHJbzvV8KsFPhW8wY?utm_source=generator&theme=0"
+                width="100%" height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="stopMusic('modQ2')">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary">
+            Comprar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FIN MODAL QUEEN 2-->
   <!-- footer -->
   <iframe id="masterFooter" src="footer.html" frameborder="0"></iframe>
-  
+
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
