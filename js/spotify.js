@@ -1,6 +1,7 @@
 const APIController = (function () {
-  const clientId = "id";
-  const clientSecret = "sid";
+    //REMPLAZAR CON ID CLIENTE + APP, REVISAR URL REDIRECT A LOCALHOST:3000
+  const clientId = "123"; //CLIENTE ID
+  const clientSecret = "123"; //CLIENTE SECRET ID --APP CREADA
 
   // private methods
   const _getToken = async () => {
@@ -14,8 +15,23 @@ const APIController = (function () {
         body: 'grant_type=client_credentials'
     });
 
+    
+
     const data = await result.json();
     return data.access_token;
+}
+
+const _getJACKSON = async (token) => {
+    console.log('línea 24')
+    const result = await fetch(`https://api.spotify.com/v1/artists/3fMbdgg4jU18AjLCKBhRSm`, {
+        method: 'GET',
+        headers: { 'Authorization' : 'Bearer ' + token}
+    });
+
+    console.log('línea 30')
+    const data = await result.json();
+    console.log(data);
+    return data.external_urls.genres;    
 }
 
 const _getGenres = async (token) => {
@@ -25,7 +41,11 @@ const _getGenres = async (token) => {
         headers: { 'Authorization' : 'Bearer ' + token}
     });
 
+    //https://api.spotify.com/v1/artists/3fMbdgg4jU18AjLCKBhRSm
+    console.log('TOKENSITO: '+token);
+
     const data = await result.json();
+    console.log(data)
     return data.categories.items;
 }
 
@@ -70,9 +90,12 @@ return {
     getToken() {
         return _getToken();
     },
+    getJACKSON(token) {
+        return _getJACKSON(token);
+    },
     getGenres(token) {
         return _getGenres(token);
-    },
+    },    
     getPlaylistByGenre(token, genreId) {
         return _getPlaylistByGenre(token, genreId);
     },
@@ -250,7 +273,7 @@ DOMInputs.tracks.addEventListener('click', async (e) => {
 
 return {
     init() {
-        console.log('App is starting');
+        console.log('SPOTIFY.JS');
         loadGenres();
     }
 }
