@@ -20,10 +20,13 @@
     <script type="text/javascript">
       $(document).ready(function () {
         var campoError = "El campo no puede estar vacio";
+        //OCULTAR DIV ERRORES
         $("#error").hide();
         $("#errorNombre").hide();
         $("#errorEmail").hide();
         $("#errorApellido").hide();
+
+        //COMPROBAR CAMPOS VACIOS AL ENFOCAR
         $("#nombre").focusout(function () {
           if ($("#nombre").val().trim().length == 0) {
             $("#errorNombre").html(campoError);
@@ -48,6 +51,8 @@
             $("#errorApellido").hide();
           }
         });
+
+        //AL PRESIONAR SUBMIT COMPROBAR CAMPOS VACIOS
         $("#formulario").submit(function () {
           var campoError = "";
           if ($("#nombre").val().trim().length == 0) {
@@ -72,6 +77,8 @@
           ) {
             campoError = "Hay campos obligatorios vacios";
           }
+          
+          //NO PASAR SIGUIENTE DESTINO SI PRESENTA ERRORES
           if (campoError != "") {
             $("#error").html(campoError);
             $("#error").show();
@@ -153,72 +160,63 @@
               ></div>
             </div>
           </div>
-
-          <div
-            class="btn-group"
-            role="group"
-            aria-label="Basic radio toggle button group"
-          >
-            <input
-              type="radio"
-              class="btn-check"
-              name="btnradio"
-              id="btncasa1"
-              autocomplete="off"
-              checked
-            />
+          
+          <!-- TIPO DOMICILIO -->
+          <label for="" class="form-label">Domicilio*</label>
+          <div class="container"></div>
+          <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="radio-propiedad">
+            <input type="radio" class="btn-check" name="btnradio" id="btncasa1" autocomplete="off" checked />
             <label class="btn btn-outline-primary" for="btncasa1">Casa</label>
-
-            <input
-              type="radio"
-              class="btn-check"
-              name="btnradio"
-              id="btndepo1"
-              autocomplete="off"
-            />
-            <label class="btn btn-outline-primary" for="btndepo1"
-              >Departamento</label
-            >
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btndepo1" autocomplete="off" />
+            <label class="btn btn-outline-primary" for="btndepo1">Departamento</label>
           </div>
-
-          <div class="form-floating mb-3">
-            <div class="col">
-              <label for="direccion" class="form-label"
-                >Direccion particular*</label
-              >
-              <input
-                type="text"
-                id="direccion"
-                name="direccion"
-                class="form-control"
-              />
-            </div>
-          </div>
-
-          <div class="form-floating mb-3">
-            <div class="row">
-              <label for="direccion" class="form-label"
-                >Direccion departamento*</label
-              >
-              <div class="col">
-                <input
-                  type="text"
-                  id="direccion"
-                  name="direccion"
-                  class="form-control"
-                  placeholder="Las flores"
-                />
+          
+          <div id="casaDiv" class="container">
+              <!-- SI RADIO BUTTON ES "casa" -->
+              <div class="form-floating mb-3">
+                <div class="col">
+                  <label for="direccion" class="form-label"
+                    >Direccion particular</label
+                  >
+                  <input
+                    type="text"
+                    id="direccion"
+                    name="direccion"
+                    class="form-control"
+                  />
+                </div>
               </div>
-              <div class="col">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="numero_depo"
-                  placeholder="12"
-                />
-              </div>
-            </div>
           </div>
+          
+          <div id="departamentoDiv" class="container" style="display:none;">
+              <!-- SI RADIO BUTTON ES "departamento" -->
+              <div class="form-floating mb-3">
+                <div class="row">
+                  <label for="direccion" class="form-label"
+                    >Direccion departamento</label
+                  >
+                  <div class="col">
+                    <input
+                      type="text"
+                      id="direccion"
+                      name="direccion"
+                      class="form-control"
+                      placeholder="Las flores"
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="numero_depo"
+                      placeholder="12"
+                    />
+                  </div>
+                </div>
+              </div>
+          </div>
+          <!-- FIN TIPO DOMICILIO -->
 
           <label for="direccion" class="form-label">Comentario</label>
           <div class="form-floating mb-3">
@@ -227,7 +225,7 @@
             <label for="nota">Nota</label>
           </div>
           <div class="mb-3">
-            <input 
+            <input
               type="submit"
               class="btn btn-primary"
               id="enviar"
@@ -261,5 +259,8 @@
 
     <!-- master.js -->
     <script src="../js/master.js"></script>
+
+    <!-- tipoDomicilio.js -->
+    <script src="../js/tipoDomicilio.js"></script>
   </body>
 </html>
