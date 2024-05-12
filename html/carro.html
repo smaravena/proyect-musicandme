@@ -25,6 +25,9 @@
         $("#errorNombre").hide();
         $("#errorEmail").hide();
         $("#errorApellido").hide();
+        $("#errorCasa").hide();
+        $("#errorDeptonombre").hide();
+        $("#errorDeptonro").hide();
 
         //COMPROBAR CAMPOS VACIOS AL ENFOCAR
         $("#nombre").focusout(function () {
@@ -51,7 +54,34 @@
             $("#errorApellido").hide();
           }
         });
-
+        if (casaRadio.checked) {
+          $("#direccionCasa").focusout(function () {
+            if ($("#direccionCasa").val().trim().length == 0) {
+              $("#errorCasa").html(campoError);
+              $("#errorCasa").show();
+            } else if ($("#direccionCasa").val().trim().length > 0) {
+              $("#errorCasa").hide();
+            }
+          });
+        } else {
+          $("#direccionDeptonombre").focusout(function () {
+            if ($("#direccionDeptonombre").val().trim().length == 0) {
+              $("#errorDeptonombre").html(campoError);
+              $("#errorDeptonombre").show();
+            } else if ($("#direccionDeptonombre").val().trim().length > 0) {
+              $("#errorDeptonombre").hide();
+            }
+          });
+          $("#direccionDeptonro").focusout(function () {
+            if ($("#direccionDeptonro").val().trim().length == 0) {
+              $("#errorDeptonro").html(campoError);
+              $("#errorDeptonro").show();
+            } else if ($("#direccionDeptonro").val().trim().length > 0) {
+              $("#errorDeptonro").hide();
+            }
+          });
+        }
+        
         //AL PRESIONAR SUBMIT COMPROBAR CAMPOS VACIOS
         $("#formulario").submit(function () {
           var campoError = "";
@@ -70,10 +100,31 @@
             $("#errorEmail").html(campoError);
             $("#errorEmail").show();
           }
+          if (casaRadio.checked) {
+            if ($("#direccionCasa").val().trim().length == 0) {
+              campoError = "La CASA está en blanco";
+              $("#errorCasa").html(campoError);
+              $("#errorCasa").show();
+            }
+          } else {
+            if ($("#direccionDeptonombre").val().trim().length == 0) {
+              campoError = "El DEPARTAMENTO NOMBRE está en blanco";
+              $("#errorDeptonombre").html(campoError);
+              $("#errorDeptonombre").show();
+            }
+            if ($("#direccionDeptonro").val().trim().length == 0) {
+              campoError = "El DEPARTAMENTO BLOQUE está en blanco";
+              $("#errorDeptonro").html(campoError);
+              $("#errorDeptonro").show();
+            }
+          }
+          
+
+          //REVISAR Y MOSTRAR DIV ERROR SI CAMPOS * VACIOS
           if (
             $("#email").val().trim().length == 0 ||
-            $("#apellido").val().trim().length == 0 ||
-            $("#email").val().trim().length == 0
+            $("#nombre").val().trim().length == 0 ||
+            $("#apellido").val().trim().length == 0
           ) {
             campoError = "Hay campos obligatorios vacios";
           }
@@ -100,7 +151,7 @@
     <!-- BODY -->
     <div class="container">
       <div class="row">
-        <form method="POST" action="procesar.php" id="formulario">
+        <form method="POST" action="../index.html" id="formulario">
           <div class="mb-3">
             <div class="row">
               <label for="nombre" class="form-label">Nombre*</label>
@@ -176,15 +227,22 @@
               <!-- SI RADIO BUTTON ES "casa" -->
               <div class="form-floating mb-3">
                 <div class="col">
-                  <label for="direccion" class="form-label"
+                  <label for="direccionCasa" class="form-label"
                     >Direccion particular</label
                   >
                   <input
                     type="text"
-                    id="direccion"
+                    id="direccionCasa"
                     name="direccion"
                     class="form-control"
                   />
+                </div>
+                <div class="mb-3">
+                  <div
+                    id="errorCasa"
+                    class="alert alert-danger"
+                    role="alert"
+                  ></div>
                 </div>
               </div>
           </div>
@@ -193,25 +251,40 @@
               <!-- SI RADIO BUTTON ES "departamento" -->
               <div class="form-floating mb-3">
                 <div class="row">
-                  <label for="direccion" class="form-label"
+                  <label for="direccionDepto" class="form-label"
                     >Direccion departamento</label
                   >
                   <div class="col">
                     <input
                       type="text"
-                      id="direccion"
+                      id="direccionDeptonombre"
                       name="direccion"
                       class="form-control"
                       placeholder="Las flores"
                     />
                   </div>
+                  <div class="mb-3">
+                    <div
+                      id="errorDeptonombre"
+                      class="alert alert-danger"
+                      role="alert"
+                    ></div>
+                  </div>
                   <div class="col">
                     <input
+                      id="direccionDeptonro"
                       type="text"
                       class="form-control"
                       name="numero_depo"
-                      placeholder="12"
+                      placeholder="Bloque"
                     />
+                  </div>
+                  <div class="mb-3">
+                    <div
+                      id="errorDeptonro"
+                      class="alert alert-danger"
+                      role="alert"
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -230,6 +303,7 @@
               class="btn btn-primary"
               id="enviar"
               value="Enviar"
+              
             />
             <input
               type="reset"
