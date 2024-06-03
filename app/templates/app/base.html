@@ -17,7 +17,75 @@
   </head>
   <body>
     <!-- navbar -->
-    <iframe class="sticky-top" id="masterNavbar" src="html/navbar.html" frameborder="0"></iframe>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+      <div class="container-fluid">
+        <img
+          src="../favicon.ico"
+          alt="Logo"
+          width="40"
+          height="40"
+          class="d-inline-block align-text-top"
+        />
+        <a class="navbar-brand" href="../index.html" target="_top">Music&Me</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="../index.html"
+                target="_top"
+                >Inicio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'discos' %}" target="_top">Discos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="instrumentos.html" target="_top"
+                >Instrumentos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html#contacto" target="_top"
+                >Contacto</a
+              >
+            </li>
+            <li class="nav-item"></li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="carro.html" target="_top"
+                ><img src="../img/svg/cart.svg" alt="..." height="24" />
+                Carro</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html" target="_top"
+                ><img
+                  src="../img/svg/person-circle.svg"
+                  alt="..."
+                  height="24"
+                />
+                Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- fin navbar -->
 
     <div id="contenido">
         {% block contenido %}
@@ -26,7 +94,164 @@
     </div>
     
     <!-- footer -->
-    <iframe id="masterFooter" src="html/footer.html" frameborder="0"></iframe>
+    <a name="contacto"></a>
+    <footer class="footer-bg">
+      <br />
+      <div class="container" --bs-dark-bg-subtle>
+        <div class="row">
+          <div class="col-lg-4">
+            <h3>Enlaces</h3>
+            <ul>
+              <li><a target="_top" href="../index.html">Inicio</a></li>
+              <li><a href="#">Acerca de</a></li>
+              <li>
+                <!-- Trigger modal -->
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  >Suscribirse</a
+                >
+
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="exampleModal"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel" w> 
+                          Suscribirse
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label for="InputEmail1" class="form-label"
+                              >Correo electronico</label
+                            >
+                            <input
+                              type="email"
+                              class="form-control"
+                              id="InputEmail1"
+                              aria-describedby="emailHelp"
+                              placeholder="correo@ejemplo.com"
+                            />
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          data-bs-dismiss="modal"
+                        >
+                          Cancelar
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Guardar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <!-- CONTACTO -->
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#contactoModal"
+                  >Contacto</a
+                >
+
+                <!-- Modal CONTACTO-->
+                <div
+                  class="modal fade"
+                  id="contactoModal"
+                  tabindex="-1"
+                  aria-labelledby="contactoModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="contactoModalLabel">
+                          Contacto
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label"
+                              >Asunto:</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="recipient-name"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <label for="message-text" class="col-form-label"
+                              >Cuerpo:</label
+                            >
+                            <textarea
+                              class="form-control"
+                              id="message-text"
+                            ></textarea>
+                          </div>
+                        </form>
+                      </div>
+
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          data-bs-dismiss="modal"
+                        >
+                          Cancelar
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Guardar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h3>Contacto</h3>
+            <p>Correo electrónico: musicandme@contacto.com</p>
+            <p>Teléfono: 123-456-7890</p>
+          </div>
+          <div class="col-lg-4">
+            <h3>Derechos de autor</h3>
+            <p>(c) 2024 Music&Me. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- FIN FOOTER -->
 
     <!-- Bootstrap -->
     <script
