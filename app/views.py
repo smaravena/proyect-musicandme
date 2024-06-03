@@ -7,3 +7,12 @@ def home(request):
 
 def discos(request):
     return render(request, 'app/discos.html')
+
+def instrumentos(request):
+    return render(request, 'app/instrumentos.html')
+
+def carro(request):
+    return render(request, 'app/carro.html')
+
+def login(request):
+    return render(request, 'app/login.html')
