@@ -7,10 +7,10 @@ class Genero(models.Model):
         return str(self.genero)
 
 class Disco(models.Model):
-    id_disco         = models.IntegerField(primary_key=True, max_length=10)
+    id_disco         = models.IntegerField(primary_key=True)
     artista          = models.CharField(max_length=20,null=False)
     nombre           = models.CharField(max_length=20,null=False)  
-    precio           = models.IntegerField(max_length=20,null=False) 
+    precio           = models.IntegerField(null=False) 
     id_genero        = models.ForeignKey('Genero',on_delete=models.CASCADE, db_column='idGenero')  
     imagen           = models.ImageField(upload_to="app", null=False)
     descripcion      = models.CharField(max_length=200,null=False)
@@ -24,11 +24,11 @@ class Tipo_instrumento(models.Model):
     def __str__(self):
         return str(self.tipo)
 class Instrumento(models.Model):
-    id_instrumento         = models.IntegerField(primary_key=True, max_length=10)
-    marca          = models.CharField(max_length=20,null=False)
+    id_instrumento   = models.IntegerField(primary_key=True)
+    marca            = models.CharField(max_length=20,null=False)
     nombre           = models.CharField(max_length=20,null=False)  
-    precio           = models.IntegerField(max_length=20,null=False) 
-    id_tipo        = models.ForeignKey('Tipo_instrumento',on_delete=models.CASCADE, db_column='id_tipo')  
+    precio           = models.IntegerField(null=False) 
+    id_tipo          = models.ForeignKey('Tipo_instrumento',on_delete=models.CASCADE, db_column='id_tipo')  
     imagen           = models.ImageField(upload_to="app", null=False)
     descripcion      = models.CharField(max_length=200,null=False)
     def __str__(self):
