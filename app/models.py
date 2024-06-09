@@ -12,7 +12,7 @@ class Disco(models.Model):
     nombre           = models.CharField(max_length=20,null=False)  
     precio           = models.IntegerField(null=False) 
     id_genero        = models.ForeignKey('Genero',on_delete=models.CASCADE, db_column='idGenero')  
-    imagen           = models.ImageField(upload_to="app", null=False)
+    imagen           = models.ImageField(upload_to="app/img", null=False)
     descripcion      = models.CharField(max_length=200,null=False)
 
     def __str__(self):
@@ -29,7 +29,7 @@ class Instrumento(models.Model):
     nombre           = models.CharField(max_length=20,null=False)  
     precio           = models.IntegerField(null=False) 
     id_tipo          = models.ForeignKey('Tipo_instrumento',on_delete=models.CASCADE, db_column='id_tipo')  
-    imagen           = models.ImageField(upload_to="app", null=False)
+    imagen           = models.ImageField(upload_to="app/img", null=False)
     descripcion      = models.CharField(max_length=200,null=False)
     def __str__(self):
         return str(self.nombre)+"-"+str(self.marca)
