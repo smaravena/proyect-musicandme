@@ -9,7 +9,7 @@ class Genero(models.Model):
         return str(self.genero)
 
 class Disco(models.Model):
-    id_disco         = models.IntegerField(primary_key=True)
+    id_disco         = models.AutoField(primary_key=True)
     artista          = models.CharField(max_length=20,null=False)
     nombre           = models.CharField(max_length=20,null=False)  
     precio           = models.IntegerField(null=False) 
@@ -28,7 +28,7 @@ class Tipo_instrumento(models.Model):
         return str(self.tipo)
     
 class Instrumento(models.Model):
-    id_instrumento   = models.IntegerField(primary_key=True)
+    id_instrumento   = models.AutoField(primary_key=True)
     marca            = models.CharField(max_length=20,null=False)
     nombre           = models.CharField(max_length=20,null=False)  
     precio           = models.IntegerField(null=False) 
