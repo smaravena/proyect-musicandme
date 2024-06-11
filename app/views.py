@@ -26,3 +26,6 @@ def login(request):
     discos = Disco.objects.all() 
     contex = {'discos' : discos}
     return render(request,'app/discos_list.html',contex)
+def lista_discos(request):
+    discos = Disco.objects.all()  # Obtener todos los objetos Disco de la base de datos
+    return render(request, 'app/lista_discos.html', {'discos': discos})
