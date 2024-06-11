@@ -1,5 +1,4 @@
-app/_pycache_
-app/migrations/_pycache_
-musicandme/_pycache_
-myvenv/Lib
-myvenv/Lib/site-packages
+app/_pycache_/
+app/migrations/_pycache_/
+musicandme/_pycache_/
+myvenv/Lib/
