@@ -26,10 +26,10 @@ Inicializar el proyecto:
 
 ```bash
 # Crear un entorno virtual
-python -m venv mi_entorno
+python -m venv musicandme
 
 # Activar el entorno virtual
-mi_entorno\Scripts\activate
+musicandme\Scripts\activate
 
 # Instalar Django y Pillow
 pip install django pillow
