@@ -1,0 +1,275 @@
+{% extends "app/base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music&Me</title>
+    <link rel="stylesheet" href="{% url 'app/css/stylesheet.css'%}" />
+    <link rel="icon" href="{% static 'app/favicon.ico'%}" sizes="16x16" />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+
+<!-- CAROUSEL -->
+<div class="container-lg">
+    <div
+      id="carouselExampleCaptions"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+          <img
+            src="{% static 'app/img/img_carousel/chayanne.jpg' %}"
+            class="imgCarrousel"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="text-black bg-warning bg-opacity-75">
+              Bienvenidos a Music&Me
+            </h5>
+            <p class="text-warning bg-black bg-opacity-75">
+              Somos una página dedicada a la venta de todo lo que tenga que
+              ver con la música.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img
+            src="{% static 'app/img/img_carousel/dua.jpg' %}"
+            class="imgCarrousel"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="text-black bg-warning bg-opacity-75">Bajos precios</h5>
+            <p class="text-warning bg-black bg-opacity-75">
+              Aqui encontraras todo tipo de productos a precios accesibles
+              para tu bolsillo.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img
+            src="{% static 'app/img/img_carousel/fredy.jpg' %}"
+            class="imgCarrousel"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="text-black bg-warning bg-opacity-75">
+              Old y New School
+            </h5>
+            <p class="text-warning bg-black bg-opacity-75">
+              Tenemos lo mejor de la antigua y nueva generación.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img
+            src="{% static 'app/img/img_carousel/george_michael.jpg' %}"
+            class="imgCarrousel"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="text-black bg-warning bg-opacity-75">Mision</h5>
+
+            <p class="text-warning bg-black bg-opacity-75">
+              Alcanzar con la musica a todo rincon de Chile.
+            </p>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden"></span>
+      </button>
+    </div>
+  </div>
+  <!-- FIN CAROUSEL -->
+  <br />
+  <!-- TEXTO + FOTO -->
+  <div class="container">
+    <div class="clearfix text-center">
+      <p class="text-black bg-warning bg-opacity-75 fs-4">¿Quienes somos?</p>
+      <p
+        class="fs-5"
+        style="text-align: justify; text-justify: inter-word; padding: 5%"
+      >
+        Music&Me es más que una simple tienda; somos un destino para los
+        amantes de la música. Nos especializamos en la venta de una amplia
+        variedad de discos, desde vinilos clásicos hasta los últimos
+        lanzamientos en CD. Además, ofrecemos una selección cuidadosamente
+        curada de instrumentos musicales y accesorios para satisfacer las
+        necesidades de músicos de todos los niveles. Nuestro compromiso es
+        proporcionar a nuestros clientes no solo productos de alta calidad,
+        sino también una experiencia enriquecedora que celebre la pasión por
+        la música en todas sus formas.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <p id="test"></p>
+  </div>
+  
+  <!-- spotify api -->
+  <div class="container">
+    <p class="fw-bold p-3 bg-black text-warning text-center">API - TRACK DESTACADA</p>
+  </div>
+
+  <div class="container">
+    <form action="">
+        <input type="hidden" id='hidden_token'>
+    </form>
+        <div class="col-sm-6 px-0">
+            <div class="list-group song-list">
+            </div>
+        </div>
+          <div class="mx-auto col-sm-4" id="song-detail">
+        </div>
+  </div>
+  <!--fin spotify-->
+
+  <!--Productos destacados-->
+  <div class="container">
+    <p class="fw-bold p-3 bg-black text-warning text-center">NUESTROS PRODUCTOS DESTACADOS</p>
+  </div>
+  <div class="container-xl">
+    <div class="row justify-content-center">
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img
+            src="{%static 'app/img/img_disc/michael_jackson_thriller.png'%}"
+            width="50px"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Michael Jackson-Thriller</h5>
+            <p class="card-text">Precio: $$$$$$$</p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img
+          "{%static 'app/img/img_disc/queen2.webp'%}"
+            src="{%static 'app/img/img_Instrum/GuitarraAcusticaYamahaC40.jpg'%}"
+            width="50px"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Guitarra YamahaC40</h5>
+            <p class="card-text">Precio: $$$$$$$</p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img
+            src="{% static 'app/img/img_disc/queen2.webp' %}"
+            width="50px"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Queen - Queen II</h5>
+            <p class="card-text">Precio: $$$$$$$</p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-auto">
+        <div class="card mx-auto" style="width: 18rem">
+          <img
+            src="{% static 'app/img/img_Instrum/conga.webp' %}"
+            width="50px"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Set conga 10 & 11 xH28</h5>
+            <p class="card-text">Precio: $$$$$$$</p>
+            <a href="#" class="btn btn-success">Añadir al carrito</a>
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- iframeResizer -->
+    <script src="js/iframeResizer/iframeResizer.min.js"></script>
+
+    <!-- master.js -->
+    <script src="js/master.js"></script>
+
+    <!-- api -->
+    <script src="js/spotify.js"></script>
+  </body>
+</html>
