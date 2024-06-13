@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music&Me</title>
-    <link rel="stylesheet" href="../css/stylesheet.css" />
+    <link rel="stylesheet" href="{% static 'app/css/stylesheet.css'%}" />
     <link rel="icon" href="../favicon.ico" sizes="16x16" />
     <!-- Bootstrap -->
     <link
@@ -48,7 +49,7 @@
               </div>
             </div>
             <button type="submit" class="btn btn-primary">Ingresar</button>
-            <a href="../index.html" class="btn btn-warning" role="button"
+            <a href="{% url 'home' %}" class="btn btn-warning" role="button"
               >Continuar como invitado</a
             >
           </form>
