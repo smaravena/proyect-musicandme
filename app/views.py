@@ -29,3 +29,6 @@ def login(request):
 def lista_discos(request):
     discos = Disco.objects.all()  # Obtener todos los objetos Disco de la base de datos
     return render(request, 'app/lista_discos.html', {'discos': discos})
+def lista_instrumentos(request):
+    instrumento = Instrumento.objects.all()  # Obtener todos los objetos Disco de la base de datos
+    return render(request, 'app/lista_instrumentos.html', {'instrumento': instrumento})
