@@ -65,7 +65,7 @@
             {% endfor %}
         </div>
     </div>
-    <!-- FUNCION JQ PAUSAR VIDEO -->
+    <!-- FUNCION JQ PAUSAR MUSICA -->
     <script class="text/javascript">
         function stopMusic(modalId) {
           var modal = document.getElementById(modalId);
@@ -77,7 +77,7 @@
         var modals = document.querySelectorAll('.modal');
         modals.forEach(function (modal) {
           modal.addEventListener('focusout', function () {
-            stopVideo(modal.id);
+            stopMusic(modal.id);
           });
         });
       </script>
