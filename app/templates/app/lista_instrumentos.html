@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-     {% load static %}
+    {% load static %}
     <meta charset="UTF-8">
     <title>Lista de Instrumentos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -65,6 +65,25 @@
             {% endfor %}
         </div>
     </div>
+
+    <!-- FUNCION JQ PAUSAR VIDEO -->
+    <script class="text/javascript">
+        function stopVideo(modalId) {
+          var modal = document.getElementById(modalId);
+          var iframe = modal.querySelector('iframe');
+            var videoSrc = iframe.src;
+            // Detener el video pausando la reproducción
+            iframe.src = videoSrc;
+          
+        }
+
+        var modals = document.querySelectorAll('.modal');
+        modals.forEach(function (modal) {
+          modal.addEventListener('focusout', function () {
+            stopVideo(modal.id);
+          });
+        });
+    </script>
 </body>
 </html>
 {% endblock %}
