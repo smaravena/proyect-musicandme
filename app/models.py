@@ -15,8 +15,8 @@ class Disco(models.Model):
     precio           = models.IntegerField(null=False) 
     id_genero        = models.ForeignKey('Genero',on_delete=models.CASCADE, db_column='idGenero')  
     imagen           = models.ImageField(upload_to="disco", null=True)
-    descripcion      = models.CharField(max_length=200,null=False)
-
+    descripcion      = models.TextField(null=False)
+    spotify_iframe   = models.TextField(null=True, blank=True) 
     def __str__(self):
         return str(self.nombre)+"-"+str(self.artista)
     
@@ -34,7 +34,8 @@ class Instrumento(models.Model):
     precio           = models.IntegerField(null=False) 
     id_tipo          = models.ForeignKey('Tipo_instrumento',on_delete=models.CASCADE, db_column='id_tipo')  
     imagen           = models.ImageField(upload_to="instrumento", null=True)
-    descripcion      = models.CharField(max_length=200,null=False)
+    descripcion      = models.TextField(null=False)
+    yt_iframe        = models.TextField(null=True, blank=True) 
     
     def __str__(self):
         return str(self.nombre)+"-"+str(self.marca)
