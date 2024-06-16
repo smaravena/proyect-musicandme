@@ -1,5 +1,6 @@
 app/__pycache__/
 app/migrations/__pycache__/
 musicandme/__pycache__/
-myvenv/Lib/
 administrador/__pycache__/
+myvenv/Lib/
+myvenv/Lib/site-packages/
