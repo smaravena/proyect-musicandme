@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <title>Lista de Discos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Lista de Discos</h1>
+        <div class="row">
+            {% for disco in discos %}
+                <div class="col-md-auto mb-4">
+                    <div class="card mx-auto" style="width: 18rem;">
+                        {% if disco.imagen %}
+                            <img src="{{ disco.imagen.url }}" class="card-img-top" alt="{{ disco.nombre }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ disco.nombre }} - {{ disco.artista }}</h5>
+                            <p class="card-text">
+                                Precio: ${{ disco.precio }}
+                            </p>
+                            <a href="#" class="btn btn-success">Añadir al carrito</a>
+                            <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{ disco.id_disco }}">Detalles</a>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                {% endfor%}
