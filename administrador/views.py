@@ -10,6 +10,10 @@ def homeadm(request):
 def viewDisco(request):
     discos=Disco.objects.all()
     return render(request, 'administrador/lista_discosAdm.html', {'discos': discos})
+@login_required
+def viewInstrum(request):
+    instrumento=Instrumento.objects.all()
+    return render(request, 'administrador/lista_instrumAdm.html', {'instrumento': instrumento})
 
 
 
