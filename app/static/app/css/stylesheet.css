@@ -37,6 +37,10 @@ p.texto-carousel {
   background-position: center;
 }
 
+.COLOR-INDEX{
+  color: white;
+}
+
 .video-container {
   position: relative;
   width: 100%;

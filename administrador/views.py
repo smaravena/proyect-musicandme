@@ -3,9 +3,9 @@ from django.contrib.auth.decorators import login_required
 from app.models import Genero,Disco,Tipo_instrumento,Instrumento
 # Create your views here.
 @login_required
-def homeadm(request):
+def index(request):
     context = {}
-    return render(request,'administrador/test.html',context)
+    return render(request,'administrador/index.html',context)
 @login_required
 def viewDisco(request):
     discos=Disco.objects.all()
