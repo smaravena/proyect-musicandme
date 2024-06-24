@@ -17,27 +17,29 @@
 <body>
     <div class="container">
         <div class="COLOR-INDEX">
-        <h1 class="mt-4 mb-4">Lista de Instrumentos</h1>
+            <h1 class="mt-4 mb-4">Lista de Instrumentos</h1>
         </div>
         <div class="row">
             {% for instrum in instrumento %}
-                <div class="col-md-auto mb-4">
-                    <div class="card mx-auto" style="width: 18rem;">
-                        {% if instrum.imagen %}
-                            <img src="{{ instrum.imagen.url }}" class="card-img-top" alt="{{ instrum.nombre }}">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ instrum.nombre }} - {{ instrum.marca }}</h5>
-                            <p class="card-text">
-                                Precio: ${{ instrum.precio }}
-                            </p>
-                            <a href="#" class="btn btn-success">Añadir al carrito</a>
-                            <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{ instrum.id_instrumento }}">Detalles</a>
-                        </div>
+            <div class="col-md-auto mb-4">
+                <div class="card mx-auto" style="width: 18rem;">
+                    {% if instrum.imagen %}
+                    <img src="{{ instrum.imagen.url }}" class="card-img-top" alt="{{ instrum.nombre }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ instrum.nombre }} - {{ instrum.marca }}</h5>
+                        <p class="card-text">
+                            Precio: ${{ instrum.precio }}
+                        </p>
+                        <a href="#" class="btn btn-success">Añadir al carrito</a>
+                        <a href="#" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#modal{{ instrum.id_instrumento }}">Detalles</a>
                     </div>
-                    <br />
                 </div>
-                {% endfor %}
-                {% endblock %}
+                <br />
+            </div>
+            {% endfor %}
+            {% endblock %}
+        </div>
 </body>
 </html>
