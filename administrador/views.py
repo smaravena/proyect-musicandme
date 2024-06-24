@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from app.models import Genero,Disco,Tipo_instrumento,Instrumento
 from .forms import formDisco
@@ -26,7 +26,27 @@ def discoAdd(request):
             formulario.save()
             #mensaje de confirmación
             context={'mensaje':'Disco agregado con exito'}
-    return render(request,'administrador/discoAdd.html',context)        
+    return render(request,'administrador/discoAdd.html',context)
+@login_required
+def discoEdit(request,pk):
+    #buscar disco para formulario segun la ID del disco
+    disco=Disco.objects.get(id_disco = pk)
+    context= {'form':formDisco(instance=disco)}
+    if request.method=='POST':
+        form=formDisco(data=request.POST,files=request.FILES,instance=disco)
+        #validacion de campos del formulario
+        if form.is_valid:
+            #guardar datos editados en la BASE DE DATOS
+            form.save()
+            context={'mensaje':'Disco modificado con exito'}
+    return render(request,'administrador/discosEdit.html',context)
+
+def discoDelete(request,pk):
+    disco= Disco.objects.get(id_disco=pk)
+    disco.delete()
+    return redirect(to='viewdisco')
+
+           
 
 
 
