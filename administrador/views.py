@@ -57,6 +57,23 @@ def instrumAdd(request):
             #mensaje de confirmación
             context={'mensaje':'Instrumento agregado con exito'}
     return render(request,'administrador/instrumAdd.html',context)
+def instrumEdit(request,pk):
+    #buscar disco para formulario segun la ID del disco
+    instrum=Instrumento.objects.get(id_instrumento = pk)
+    context= {'form':formInstrum(instance=instrum)}
+    if request.method=='POST':
+        form=formInstrum(data=request.POST,files=request.FILES,instance=instrum)
+        #validacion de campos del formulario
+        if form.is_valid:
+            #guardar datos editados en la BASE DE DATOS
+            form.save()
+            context={'mensaje':'Instrumento modificado con exito'}
+    return render(request,'administrador/instrumEdit.html',context)
+def instrumDel(request,pk):
+    instrum= Instrumento.objects.get(id_instrumento=pk)
+    instrum.delete()
+    return redirect(to='viewinstrum')
+
 
            
 

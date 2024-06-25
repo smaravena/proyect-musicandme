@@ -19,9 +19,9 @@
                         <p class="card-text">
                             Precio: ${{ instrum.precio }}
                         </p>
-                        <a type="button" class="btn btn-warning" href="{% url 'viewinstrum' %}">
+                        <a type="button" class="btn btn-warning" href="{% url 'instrumedit' pk=instrum.id_instrumento %}">
                                 Modificar</a>
-                        <a type="button" class="btn btn-danger" href="{% url 'viewinstrum' %}">
+                        <a type="button" class="btn btn-danger" href="{% url 'instrumdelete' pk=instrum.id_instrumento%}">
                             Eliminar</a>
                     </div>
                 </div>
