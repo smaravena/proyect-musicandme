@@ -28,13 +28,16 @@
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ disco.nombre }} - {{ disco.artista }}</h5>
-                        <button type="button" class="btn-primary"><a
-                                href="{% url 'discoedit' pk=disco.id_disco %}">Modificar</a></button>
-                        <button type="button" class="btn-primary"><a
-                                href="{% url 'discodelete' pk=disco.id_disco %}">Eliminar</a></button>
+                        <p class="card-text">
+                            Precio: ${{ disco.precio }}
+                        </p>
+                        <A type="button" class="btn btn-warning" href="{% url 'discoedit' pk=disco.id_disco %}">
+                                Modificar</a>
+                        <a type="button" class="btn btn-danger" href="{% url 'discodelete' pk=disco.id_disco %}">
+                            Eliminar</a>
                     </div>
                 </div>
-                <br />
+                <br/>
             </div>
             {% endfor%}
         </div>
