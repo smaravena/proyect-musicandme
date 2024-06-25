@@ -31,12 +31,13 @@
                         <p class="card-text">
                             Precio: ${{ instrum.precio }}
                         </p>
-                        <a href="#" class="btn btn-success">Añadir al carrito</a>
-                        <a href="#" class="btn btn-success" data-bs-toggle="modal"
-                            data-bs-target="#modal{{ instrum.id_instrumento }}">Detalles</a>
+                        <a type="button" class="btn btn-warning" href="{% url 'index' %}">
+                                Modificar - CAMBIAR A INSTURMENTO</a>
+                        <a type="button" class="btn btn-danger" href="{% url 'index' %}">
+                            Eliminar - CAMBIAR A INSTURMENTO</a>
                     </div>
                 </div>
-                <br />
+                <br/>
             </div>
             {% endfor %}
         </div>
