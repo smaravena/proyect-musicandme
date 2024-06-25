@@ -3,18 +3,6 @@
 {% load static %}
 
 {% block contenido %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Instrumentos</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{% static 'app/css/stylesheet.css'%}">
-</head>
-<body>
     <div class="container">
         <div class="COLOR-INDEX">
             <h1 class="mt-4 mb-4">Lista de Instrumentos</h1>
@@ -31,16 +19,14 @@
                         <p class="card-text">
                             Precio: ${{ instrum.precio }}
                         </p>
-                        <a type="button" class="btn btn-warning" href="{% url 'index' %}">
-                                Modificar - CAMBIAR A INSTURMENTO</a>
-                        <a type="button" class="btn btn-danger" href="{% url 'index' %}">
-                            Eliminar - CAMBIAR A INSTURMENTO</a>
+                        <a type="button" class="btn btn-warning" href="{% url 'viewinstrum' %}">
+                                Modificar</a>
+                        <a type="button" class="btn btn-danger" href="{% url 'viewinstrum' %}">
+                            Eliminar</a>
                     </div>
                 </div>
                 <br/>
             </div>
             {% endfor %}
         </div>
-</body>
-</html>
 {% endblock %}
