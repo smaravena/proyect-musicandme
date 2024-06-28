@@ -3,9 +3,9 @@ from .models import Genero, Disco, Tipo_instrumento, Instrumento
 
 # Create your views here.
 
-def home(request):
+def inicio(request):
     contex = {}
-    return render(request, 'app/home.html')
+    return render(request, 'app/index.html')
 
 def discos(request):
     return render(request, 'app/discos.html')
