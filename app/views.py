@@ -27,8 +27,14 @@ def login(request):
     contex = {'discos' : discos}
     return render(request,'app/discos_list.html',contex)
 def lista_discos(request):
-    discos = Disco.objects.all()  # Obtener todos los objetos Disco de la base de datos
-    return render(request, 'app/lista_discos.html', {'discos': discos})
+    #obtenemos la id del genero para poder hacer el filtro
+    genero_id = request.GET.get('genero', None)
+    if genero_id:
+        discos = Disco.objects.filter(id_genero_id=genero_id)
+    else:
+        discos = Disco.objects.all()
+    generos = Genero.objects.all()
+    return render(request, 'app/lista_discos.html', {'discos': discos, 'generos': generos})
 def lista_instrumentos(request):
     instrumento = Instrumento.objects.all()  # Obtener todos los objetos Disco de la base de datos
     return render(request, 'app/lista_instrumentos.html', {'instrumento': instrumento})

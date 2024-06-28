@@ -3,56 +3,72 @@
 {% load static %}
 
 {% block contenido %}
-    <div class="container">
-        <h1 class="mt-4 mb-4">Lista de Discos</h1>
-        <div class="row">
-            {% for disco in discos %}
-                <div class="col-md-auto mb-4">
-                    <div class="card mx-auto" style="width: 18rem;">
-                        {% if disco.imagen %}
-                            <img src="{{ disco.imagen.url }}" class="card-img-top" alt="{{ disco.nombre }}">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ disco.nombre }} - {{ disco.artista }}</h5>
-                            <p class="card-text">
-                                Precio: ${{ disco.precio }}
-                            </p>
-                            <a href="#" class="btn btn-success">Añadir al carrito</a>
-                            <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{ disco.id_disco }}">Detalles</a>
-                        </div>
-                    </div>
-                    <br />
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <form method="get" action="">
+                <div class="input-group">
+                    <select name="genero" class="form-select">
+                        <option value="">Todos los géneros</option>
+                        {% for genero in generos %}
+                            <option value="{{ genero.id_genero }}" {% if request.GET.genero == genero.id_genero|stringformat:"s" %}selected{% endif %}>
+                                {{ genero.genero }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-primary">Filtrar</button>
                 </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="modal{{ disco.id_disco }}" tabindex="-1" aria-labelledby="modalLabel{{ disco.id_disco }}" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalLabel{{ disco.id_disco }}">{{ disco.nombre }} - {{ disco.artista }}</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>{{ disco.descripcion }}</p>
-                                <p>Género: {{ disco.id_genero.genero }}</p>
-                                <p>Precio: ${{ disco.precio }}</p>
-                                {% if disco.spotify_iframe %}
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        {{ disco.spotify_iframe|safe }}
-                                    </div>
-                                {% endif %}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+            </form>
         </div>
     </div>
+
+    <div class="row">
+        {% for disco in discos %}
+            <div class="col-md-auto mb-4">
+                <div class="card mx-auto" style="width: 18rem;">
+                    {% if disco.imagen %}
+                        <img src="{{ disco.imagen.url }}" class="card-img-top" alt="{{ disco.nombre }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ disco.nombre }} - {{ disco.artista }}</h5>
+                        <p class="card-text">
+                            Precio: ${{ disco.precio }}
+                        </p>
+                        <a href="#" class="btn btn-success">Añadir al carrito</a>
+                        <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{ disco.id_disco }}">Detalles</a>
+                    </div>
+                </div>
+                <br />
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal{{ disco.id_disco }}" tabindex="-1" aria-labelledby="modalLabel{{ disco.id_disco }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel{{ disco.id_disco }}">{{ disco.nombre }} - {{ disco.artista }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{ disco.descripcion }}</p>
+                            <p>Género: {{ disco.id_genero.genero }}</p>
+                            <p>Precio: ${{ disco.precio }}</p>
+                            {% if disco.spotify_iframe %}
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    {{ disco.spotify_iframe|safe }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
     <!-- FUNCION JQ PAUSAR MUSICA -->
     <script class="text/javascript">
         function stopMusic(modalId) {
