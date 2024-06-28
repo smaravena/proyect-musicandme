@@ -70,7 +70,7 @@ TEMPLATES = [
 ]
 
 LOGIN_REDIRECT_URL = 'login'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'inicio'
 
 WSGI_APPLICATION = 'musicandme.wsgi.application'
 
