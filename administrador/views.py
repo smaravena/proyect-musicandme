@@ -25,7 +25,7 @@ def discoAdd(request):
             #procedimiento para guardar en la base de datos
             formulario.save()
             #mensaje de confirmación
-            context={'mensaje':'Disco agregado con exito'}
+            return redirect('viewdisco')
     return render(request,'administrador/discoAdd.html',context)
 @login_required
 def discoEdit(request,pk):
@@ -38,7 +38,7 @@ def discoEdit(request,pk):
         if form.is_valid:
             #guardar datos editados en la BASE DE DATOS
             form.save()
-            context={'mensaje':'Disco modificado con exito'}
+            return redirect('viewdisco')
     return render(request,'administrador/discosEdit.html',context)
 
 def discoDelete(request,pk):
@@ -55,8 +55,8 @@ def instrumAdd(request):
             #procedimiento para guardar en la base de datos
             formulario.save()
             #mensaje de confirmación
-            context={'mensaje':'Instrumento agregado con exito'}
-    return render(request,'administrador/instrumAdd.html',context)
+            return redirect('viewinstrum')
+    return render(request, 'administrador/instrumAdd.html', context)
 def instrumEdit(request,pk):
     #buscar disco para formulario segun la ID del disco
     instrum=Instrumento.objects.get(id_instrumento = pk)
@@ -67,7 +67,7 @@ def instrumEdit(request,pk):
         if form.is_valid:
             #guardar datos editados en la BASE DE DATOS
             form.save()
-            context={'mensaje':'Instrumento modificado con exito'}
+            return redirect('viewinstrum')
     return render(request,'administrador/instrumEdit.html',context)
 def instrumDel(request,pk):
     instrum= Instrumento.objects.get(id_instrumento=pk)
