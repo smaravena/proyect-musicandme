@@ -60,9 +60,12 @@ html {
 }
 body {
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
-.content {
-  flex: 1;
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
