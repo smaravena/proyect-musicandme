@@ -3,333 +3,227 @@
 {% load static %}
 
 {% block contenido %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music&Me</title>
-    <link rel="stylesheet" href="../css/stylesheet.css" />
-    <link rel="icon" href="../favicon.ico" sizes="16x16" />
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <!-- VALIDACIONES -->
-    <script type="text/javascript">
-      $(document).ready(function () {
-        var campoError = "El campo no puede estar vacio";
-        //OCULTAR DIV ERRORES
-        $("#error").hide();
-        $("#errorNombre").hide();
-        $("#errorEmail").hide();
-        $("#errorApellido").hide();
-        $("#errorCasa").hide();
-        $("#errorDeptonombre").hide();
-        $("#errorDeptonro").hide();
-
-        //COMPROBAR CAMPOS VACIOS AL ENFOCAR
-        $("#nombre").focusout(function () {
-          if ($("#nombre").val().trim().length == 0) {
-            $("#errorNombre").html(campoError);
-            $("#errorNombre").show();
-          } else if ($("#nombre").val().trim().length > 0) {
-            $("#errorNombre").hide();
-          }
-        });
-        $("#email").focusout(function () {
-          if ($("#email").val().trim().length == 0) {
-            $("#errorEmail").html(campoError);
-            $("#errorEmail").show();
-          } else if ($("#email").val().trim().length > 0) {
-            $("#errorEmail").hide();
-          }
-        });
-        $("#apellido").focusout(function () {
-          if ($("#apellido").val().trim().length == 0) {
-            $("#errorApellido").html(campoError);
-            $("#errorApellido").show();
-          } else if ($("#apellido").val().trim().length > 0) {
-            $("#errorApellido").hide();
-          }
-        });
-        if (casaRadio.checked) {
-          $("#direccionCasa").focusout(function () {
-            if ($("#direccionCasa").val().trim().length == 0) {
-              $("#errorCasa").html(campoError);
-              $("#errorCasa").show();
-            } else if ($("#direccionCasa").val().trim().length > 0) {
-              $("#errorCasa").hide();
-            }
-          });
-        } else {
-          $("#direccionDeptonombre").focusout(function () {
-            if ($("#direccionDeptonombre").val().trim().length == 0) {
-              $("#errorDeptonombre").html(campoError);
-              $("#errorDeptonombre").show();
-            } else if ($("#direccionDeptonombre").val().trim().length > 0) {
-              $("#errorDeptonombre").hide();
-            }
-          });
-          $("#direccionDeptonro").focusout(function () {
-            if ($("#direccionDeptonro").val().trim().length == 0) {
-              $("#errorDeptonro").html(campoError);
-              $("#errorDeptonro").show();
-            } else if ($("#direccionDeptonro").val().trim().length > 0) {
-              $("#errorDeptonro").hide();
-            }
-          });
-        }
-        
-        //AL PRESIONAR SUBMIT COMPROBAR CAMPOS VACIOS
-        $("#formulario").submit(function () {
-          var campoError = "";
-          if ($("#nombre").val().trim().length == 0) {
-            campoError = "El NOMBRE está en blanco";
-            $("#errorNombre").html(campoError);
-            $("#errorNombre").show();
-          }
-          if ($("#apellido").val().trim().length == 0) {
-            campoError = "El APELLIDO está en blanco";
-            $("#errorApellido").html(campoError);
-            $("#errorApellido").show();
-          }
-          if ($("#email").val().trim().length == 0) {
-            campoError = "El EMAIL está en blanco";
-            $("#errorEmail").html(campoError);
-            $("#errorEmail").show();
-          }
-          if (casaRadio.checked) {
-            if ($("#direccionCasa").val().trim().length == 0) {
-              campoError = "La CASA está en blanco";
-              $("#errorCasa").html(campoError);
-              $("#errorCasa").show();
-            }
-          } else {
-            if ($("#direccionDeptonombre").val().trim().length == 0) {
-              campoError = "El DEPARTAMENTO NOMBRE está en blanco";
-              $("#errorDeptonombre").html(campoError);
-              $("#errorDeptonombre").show();
-            }
-            if ($("#direccionDeptonro").val().trim().length == 0) {
-              campoError = "El DEPARTAMENTO BLOQUE está en blanco";
-              $("#errorDeptonro").html(campoError);
-              $("#errorDeptonro").show();
-            }
-          }
-          
-
-          //REVISAR Y MOSTRAR DIV ERROR SI CAMPOS * VACIOS
-          if (
-            $("#email").val().trim().length == 0 ||
-            $("#nombre").val().trim().length == 0 ||
-            $("#apellido").val().trim().length == 0
-          ) {
-            campoError = "Hay campos obligatorios vacios";
-          }
-          
-          //NO PASAR SIGUIENTE DESTINO SI PRESENTA ERRORES
-          if (campoError != "") {
-            $("#error").html(campoError);
-            $("#error").show();
-            event.preventDefault();
-          }
-        });
-      });
-    </script>
-  </head>
-  <body>
-    <!-- BODY -->
-    <div class="container">
-      <div class="row">
-        <form method="POST" action="../index.html" id="formulario">
-          <div class="mb-3">
-            <div class="row">
-              <label for="nombre" class="form-label">Nombre*</label>
-              <div class="col">
-                <input
-                  type="text"
-                  id="nombre"
-                  class="form-control"
-                  name="nombre"
-                  placeholder="nombre"
-                />
-              </div>
-              <div class="mb-3">
-                <div
-                  id="errorNombre"
-                  class="alert alert-danger"
-                  role="alert"
-                ></div>
-              </div>
-              <div class="col">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="apellido"
-                  name="apellido"
-                  placeholder="apellido"
-                />
-              </div>
-              <div class="mb-3">
-                <div
-                  id="errorApellido"
-                  class="alert alert-danger"
-                  role="alert"
-                ></div>
-              </div>
-            </div>
+<div class="container">
+  <div class="row">
+    <form method="POST" action="../index.html" id="formulario">
+      <div class="mb-3">
+        <div class="row">
+          <label for="nombre" class="form-label">Nombre*</label>
+          <div class="col">
+            <input type="text" id="nombre" class="form-control" name="nombre" placeholder="nombre" />
           </div>
+          <div class="mb-3">
+            <div id="errorNombre" class="alert alert-danger" role="alert"></div>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="apellido" />
+          </div>
+          <div class="mb-3">
+            <div id="errorApellido" class="alert alert-danger" role="alert"></div>
+          </div>
+        </div>
+      </div>
 
-          <div class="row mb-3">
+      <div class="row mb-3">
+        <div class="col">
+          <label for="email" class="form-label">Correo Electr&oacute;nico*</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="correo@ejemplo.com" />
+        </div>
+        <div class="mb-3">
+          <div id="errorEmail" class="alert alert-danger" role="alert"></div>
+        </div>
+      </div>
+
+      <!-- TIPO DOMICILIO -->
+      <label for="" class="form-label">Domicilio*</label>
+      <div class="container"></div>
+      <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="radio-propiedad">
+        <input type="radio" class="btn-check" name="btnradio" id="btncasa1" autocomplete="off" checked />
+        <label class="btn btn-outline-primary" for="btncasa1">Casa</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btndepo1" autocomplete="off" />
+        <label class="btn btn-outline-primary" for="btndepo1">Departamento</label>
+      </div>
+
+      <div id="casaDiv" class="container">
+        <!-- SI RADIO BUTTON ES "casa" -->
+        <div class="form-floating mb-3">
+          <div class="col">
+            <label for="direccionCasa" class="form-label">Direccion particular</label>
+            <input type="text" id="direccionCasa" name="direccion" class="form-control" placeholder="Domicilio" />
+          </div>
+          <div class="mb-3">
+            <div id="errorCasa" class="alert alert-danger" role="alert"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="departamentoDiv" class="container" style="display:none;">
+        <!-- SI RADIO BUTTON ES "departamento" -->
+        <div class="form-floating mb-3">
+          <div class="row">
+            <label for="direccionDepto" class="form-label">Direccion departamento</label>
             <div class="col">
-              <label for="email" class="form-label"
-                >Correo Electr&oacute;nico*</label
-              >
-              <input
-                type="email"
-                id="email"
-                name="email"
-                class="form-control"
-                placeholder="correo@ejemplo.com"
-              />
+              <input type="text" id="direccionDeptonombre" name="direccion" class="form-control" placeholder="Departamento" />
             </div>
             <div class="mb-3">
-              <div
-                id="errorEmail"
-                class="alert alert-danger"
-                role="alert"
-              ></div>
+              <div id="errorDeptonombre" class="alert alert-danger" role="alert"></div>
+            </div>
+            <div class="col">
+              <input id="direccionDeptonro" type="text" class="form-control" name="numero_depo" placeholder="Bloque" />
+            </div>
+            <div class="mb-3">
+              <div id="errorDeptonro" class="alert alert-danger" role="alert"></div>
             </div>
           </div>
-          
-          <!-- TIPO DOMICILIO -->
-          <label for="" class="form-label">Domicilio*</label>
-          <div class="container"></div>
-          <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="radio-propiedad">
-            <input type="radio" class="btn-check" name="btnradio" id="btncasa1" autocomplete="off" checked />
-            <label class="btn btn-outline-primary" for="btncasa1">Casa</label>
-          
-            <input type="radio" class="btn-check" name="btnradio" id="btndepo1" autocomplete="off" />
-            <label class="btn btn-outline-primary" for="btndepo1">Departamento</label>
-          </div>
-          
-          <div id="casaDiv" class="container">
-              <!-- SI RADIO BUTTON ES "casa" -->
-              <div class="form-floating mb-3">
-                <div class="col">
-                  <label for="direccionCasa" class="form-label"
-                    >Direccion particular</label
-                  >
-                  <input
-                    type="text"
-                    id="direccionCasa"
-                    name="direccion"
-                    class="form-control"
-                    placeholder="Domicilio"
-                  />
-                </div>
-                <div class="mb-3">
-                  <div
-                    id="errorCasa"
-                    class="alert alert-danger"
-                    role="alert"
-                  ></div>
-                </div>
-              </div>
-          </div>
-          
-          <div id="departamentoDiv" class="container" style="display:none;">
-              <!-- SI RADIO BUTTON ES "departamento" -->
-              <div class="form-floating mb-3">
-                <div class="row">
-                  <label for="direccionDepto" class="form-label"
-                    >Direccion departamento</label
-                  >
-                  <div class="col">
-                    <input
-                      type="text"
-                      id="direccionDeptonombre"
-                      name="direccion"
-                      class="form-control"
-                      placeholder="Departamento"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <div
-                      id="errorDeptonombre"
-                      class="alert alert-danger"
-                      role="alert"
-                    ></div>
-                  </div>
-                  <div class="col">
-                    <input
-                      id="direccionDeptonro"
-                      type="text"
-                      class="form-control"
-                      name="numero_depo"
-                      placeholder="Bloque"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <div
-                      id="errorDeptonro"
-                      class="alert alert-danger"
-                      role="alert"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-          </div>
-          <!-- FIN TIPO DOMICILIO -->
-
-          <label for="direccion" class="form-label">Comentario</label>
-          <div class="form-floating mb-3">
-            <div class="col"></div>
-            <textarea class="form-control" name="nota" id="nota"></textarea>
-            <label for="nota">Nota</label>
-          </div>
-          <div class="mb-3">
-            <input
-              type="submit"
-              class="btn btn-primary"
-              id="enviar"
-              value="Enviar"
-              
-            />
-            <input
-              type="reset"
-              class="btn btn-danger"
-              id="limpiar"
-              value="Limpiar"
-            />
-            <div id="error" class="alert alert-danger" role="alert"></div>
-          </div>
-        </form>
+        </div>
       </div>
-    </div>
-    <!-- FIN BODY -->
-    <!-- Bootstrap -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+      <!-- FIN TIPO DOMICILIO -->
 
-    <!-- iframeResizer -->
-    <script src="../js/iframeResizer/iframeResizer.min.js"></script>
+      <label for="direccion" class="form-label">Comentario</label>
+      <div class="form-floating mb-3">
+        <div class="col"></div>
+        <textarea class="form-control" name="nota" id="nota"></textarea>
+        <label for="nota">Nota</label>
+      </div>
+      <div class="mb-3">
+        <input type="submit" class="btn btn-primary" id="enviar" value="Enviar" />
+        <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar" />
+        <div id="error" class="alert alert-danger" role="alert"></div>
+      </div>
+    </form>
+  </div>
+</div>
 
-    <!-- master.js -->
-    <script src="../js/master.js"></script>
 
-    <!-- tipoDomicilio.js -->
-    <script src="../js/tipoDomicilio.js"></script>
-  </body>
-</html>
+<!-- jQuery, Popper.js y Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- tipoDomicilio.js -->
+<script src="{% static 'app/js/tipoDomicilio.js' %}"></script>
+
+<!-- VALIDACIONES -->
+<script type="text/javascript">
+  $(document).ready(function () {
+    var campoError = "El campo no puede estar vacio";
+    //OCULTAR DIV ERRORES
+    $("#error").hide();
+    $("#errorNombre").hide();
+    $("#errorEmail").hide();
+    $("#errorApellido").hide();
+    $("#errorCasa").hide();
+    $("#errorDeptonombre").hide();
+    $("#errorDeptonro").hide();
+
+    //COMPROBAR CAMPOS VACIOS AL ENFOCAR
+    $("#nombre").focusout(function () {
+      if ($("#nombre").val().trim().length == 0) {
+        $("#errorNombre").html(campoError);
+        $("#errorNombre").show();
+      } else if ($("#nombre").val().trim().length > 0) {
+        $("#errorNombre").hide();
+      }
+    });
+    $("#email").focusout(function () {
+      if ($("#email").val().trim().length == 0) {
+        $("#errorEmail").html(campoError);
+        $("#errorEmail").show();
+      } else if ($("#email").val().trim().length > 0) {
+        $("#errorEmail").hide();
+      }
+    });
+    $("#apellido").focusout(function () {
+      if ($("#apellido").val().trim().length == 0) {
+        $("#errorApellido").html(campoError);
+        $("#errorApellido").show();
+      } else if ($("#apellido").val().trim().length > 0) {
+        $("#errorApellido").hide();
+      }
+    });
+    if (casaRadio.checked) {
+      $("#direccionCasa").focusout(function () {
+        if ($("#direccionCasa").val().trim().length == 0) {
+          $("#errorCasa").html(campoError);
+          $("#errorCasa").show();
+        } else if ($("#direccionCasa").val().trim().length > 0) {
+          $("#errorCasa").hide();
+        }
+      });
+    } else {
+      $("#direccionDeptonombre").focusout(function () {
+        if ($("#direccionDeptonombre").val().trim().length == 0) {
+          $("#errorDeptonombre").html(campoError);
+          $("#errorDeptonombre").show();
+        } else if ($("#direccionDeptonombre").val().trim().length > 0) {
+          $("#errorDeptonombre").hide();
+        }
+      });
+      $("#direccionDeptonro").focusout(function () {
+        if ($("#direccionDeptonro").val().trim().length == 0) {
+          $("#errorDeptonro").html(campoError);
+          $("#errorDeptonro").show();
+        } else if ($("#direccionDeptonro").val().trim().length > 0) {
+          $("#errorDeptonro").hide();
+        }
+      });
+    }
+    
+    //AL PRESIONAR SUBMIT COMPROBAR CAMPOS VACIOS
+    $("#formulario").submit(function () {
+      var campoError = "";
+      if ($("#nombre").val().trim().length == 0) {
+        campoError = "El NOMBRE está en blanco";
+        $("#errorNombre").html(campoError);
+        $("#errorNombre").show();
+      }
+      if ($("#apellido").val().trim().length == 0) {
+        campoError = "El APELLIDO está en blanco";
+        $("#errorApellido").html(campoError);
+        $("#errorApellido").show();
+      }
+      if ($("#email").val().trim().length == 0) {
+        campoError = "El EMAIL está en blanco";
+        $("#errorEmail").html(campoError);
+        $("#errorEmail").show();
+      }
+      if (casaRadio.checked) {
+        if ($("#direccionCasa").val().trim().length == 0) {
+          campoError = "La CASA está en blanco";
+          $("#errorCasa").html(campoError);
+          $("#errorCasa").show();
+        }
+      } else {
+        if ($("#direccionDeptonombre").val().trim().length == 0) {
+          campoError = "El DEPARTAMENTO NOMBRE está en blanco";
+          $("#errorDeptonombre").html(campoError);
+          $("#errorDeptonombre").show();
+        }
+        if ($("#direccionDeptonro").val().trim().length == 0) {
+          campoError = "El DEPARTAMENTO BLOQUE está en blanco";
+          $("#errorDeptonro").html(campoError);
+          $("#errorDeptonro").show();
+        }
+      }
+      
+
+      //REVISAR Y MOSTRAR DIV ERROR SI CAMPOS * VACIOS
+      if (
+        $("#email").val().trim().length == 0 ||
+        $("#nombre").val().trim().length == 0 ||
+        $("#apellido").val().trim().length == 0
+      ) {
+        campoError = "Hay campos obligatorios vacios";
+      }
+      
+      //NO PASAR SIGUIENTE DESTINO SI PRESENTA ERRORES
+      if (campoError != "") {
+        $("#error").html(campoError);
+        $("#error").show();
+        event.preventDefault();
+      }
+    });
+  });
+</script>
 {% endblock %}
