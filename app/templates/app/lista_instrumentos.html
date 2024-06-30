@@ -3,88 +3,86 @@
 {% load static %}
 
 {% block contenido %}
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col-md-12">
-                <form method="get" action="">
-                    <div class="input-group">
-                        <select name="genero" class="form-select">
-                            <option value="">Todos los tipos</option>
-                            {% for tipo in tipos %}
-                                <option value="{{ tipo.id_tipo }}" {% if request.GET.tipo == tipo.id_tipo|stringformat:"s" %}selected{% endif %}>
-                                    {{ tipo.tipo }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                        <button type="submit" class="btn btn-primary">Filtrar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="row">
-            {% for instrum in instrumento %}
-                <div class="col-md-auto mb-4">
-                    <div class="card mx-auto" style="width: 18rem;">
-                        {% if instrum.imagen %}
-                            <img src="{{ instrum.imagen.url }}" class="card-img-top" alt="{{ instrum.nombre }}">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ instrum.nombre }} - {{ instrum.marca }}</h5>
-                            <p class="card-text">
-                                Precio: ${{ instrum.precio }}
-                            </p>
-                            <a href="#" class="btn btn-success">Añadir al carrito</a>
-                            <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{ instrum.id_instrumento }}">Detalles</a>
-                        </div>
-                    </div>
-                    <br />
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <form method="get" action="">
+                <div class="input-group">
+                    <select name="tipo" class="form-select">
+                        <option value="">Todos los instrumentos</option>
+                        {% for tipo in tipos %}
+                            <option value="{{ tipo.id_tipo }}" {% if request.GET.tipo == tipo.id_tipo|stringformat:"s" %}selected{% endif %}>
+                                {{ tipo.tipo }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-primary">Filtrar</button>
                 </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="modal{{ instrum.id_instrumento }}" tabindex="-1" aria-labelledby="modalLabel{{ instrum.id_instrumento }}" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalLabel{{ instrum.id_instrumento }}">{{ instrum.nombre }} - {{ instrum.marca }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p>{{ instrum.descripcion }}</p>
-                                <p>Marca: {{ instrum.id_instrumento.tipo }}</p>
-                                <p>Precio: ${{ instrum.precio }}</p>
-                                {% if instrum.yt_iframe %}
-                                    <div class="embed-responsive embed-responsive-16by9 video-container">
-                                        {{ instrum.yt_iframe|safe }}
-                                    </div>
-                                {% endif %}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+            </form>
         </div>
     </div>
 
-    <!-- FUNCION JQ PAUSAR VIDEO -->
+    <div class="row">
+        {% for instrum in instrumento %}
+            <div class="col-md-auto mb-4">
+                <div class="card mx-auto" style="width: 18rem;">
+                    {% if instrum.imagen %}
+                        <img src="{{ instrum.imagen.url }}" class="card-img-top" alt="{{ instrum.nombre }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ instrum.nombre }} - {{ instrum.marca }}</h5>
+                        <p class="card-text">
+                            Precio: ${{ instrum.precio }}
+                        </p>
+                        <a href="#" class="btn btn-success">Añadir al carrito</a>
+                        <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{ instrum.id_instrumento }}">Detalles</a>
+                    </div>
+                </div>
+                <br />
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal{{ instrum.id_instrumento }}" tabindex="-1" aria-labelledby="modalLabel{{ instrum.id_instrumento }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel{{ instrum.id_instrumento }}">{{ instrum.nombre }} - {{ instrum.marca }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{ instrum.descripcion }}</p>
+                            <p>Categoria: {{ instrum.id_tipo.tipo_instrumento }}</p>
+                            <p>Precio: ${{ instrum.precio }}</p>
+                            {% if instrum.yt_iframe %}
+                                <div class="embed-responsive embed-responsive-16by9 video-container">
+                                    {{ instrum.yt_iframe|safe }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+    <!-- FUNCION JQ PAUSAR MUSICA -->
     <script class="text/javascript">
-        function stopVideo(modalId) {
+        function stopMusic(modalId) {
           var modal = document.getElementById(modalId);
           var iframe = modal.querySelector('iframe');
-            var videoSrc = iframe.src;
-            // Detener el video pausando la reproducción
-            iframe.src = videoSrc;
-          
+          var musicSrc = iframe.src;
+          //PAUSAR IFRAME DE SPOTIFY
+          iframe.src = musicSrc;
         }
-
         var modals = document.querySelectorAll('.modal');
         modals.forEach(function (modal) {
           modal.addEventListener('focusout', function () {
-            stopVideo(modal.id);
+            stopMusic(modal.id);
           });
         });
-    </script>
+      </script>
 {% endblock %}

@@ -39,8 +39,8 @@ def lista_instrumentos(request):
     #obtenemos la id del tipo dei instrumento para hacer el filtro
     tipo_id=request.GET.get('tipo',None)
     if tipo_id:
-        instrumento = Instrumento.objects.filter(id_tipo=tipo_id)
+        instrumentos = Instrumento.objects.filter(id_tipo=tipo_id)
     else:
-        instrumento = Instrumento.objects.all()
+        instrumentos = Instrumento.objects.all()
     tipos = Tipo_instrumento.objects.all()        
-    return render(request, 'app/lista_instrumentos.html', {'instrumento': instrumento,'tipos': tipos})
+    return render(request, 'app/lista_instrumentos.html', {'instrumento': instrumentos,'tipos': tipos})
