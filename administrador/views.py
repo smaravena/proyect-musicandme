@@ -93,7 +93,7 @@ def typeInstrumAdd(request):
             #procedimiento para guardar en la base de datos
             formulario.save()
             #mensaje de confirmación
-            return redirect('viewdisco')
+            return redirect('viewinstrum')
     return render(request,'administrador/typeInstrumAdd.html',context)
 
 
