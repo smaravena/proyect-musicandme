@@ -36,5 +36,11 @@ def lista_discos(request):
     generos = Genero.objects.all()
     return render(request, 'app/lista_discos.html', {'discos': discos, 'generos': generos})
 def lista_instrumentos(request):
-    instrumento = Instrumento.objects.all()  # Obtener todos los objetos Disco de la base de datos
-    return render(request, 'app/lista_instrumentos.html', {'instrumento': instrumento})
+    #obtenemos la id del tipo dei instrumento para hacer el filtro
+    tipo_id=request.GET.get('tipo',None)
+    if tipo_id:
+        instrumento = Instrumento.objects.filter(id_tipo=tipo_id)
+    else:
+        instrumento = Instrumento.objects.all()
+    tipos = Tipo_instrumento.objects.all()        
+    return render(request, 'app/lista_instrumentos.html', {'instrumento': instrumento,'tipos': tipos})

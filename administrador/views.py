@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from app.models import Genero,Disco,Tipo_instrumento,Instrumento
-from .forms import formDisco,formInstrum
+from .forms import formDisco,formInstrum,formGenre,formInstrumType
 # Create your views here.
 @login_required
 def index(request):
@@ -73,6 +73,29 @@ def instrumDel(request,pk):
     instrum= Instrumento.objects.get(id_instrumento=pk)
     instrum.delete()
     return redirect(to='viewinstrum')
+def genreAdd(request):
+    #entregando formulario a discoAdd.html
+    context={'form':formGenre()}
+    if request.method=='POST':
+        formulario=formGenre(request.POST,files=request.FILES)
+        if formulario.is_valid:
+            #procedimiento para guardar en la base de datos
+            formulario.save()
+            #mensaje de confirmación
+            return redirect('viewdisco')
+    return render(request,'administrador/genreAdd.html',context)
+def typeInstrumAdd(request):
+    #entregando formulario a discoAdd.html
+    context={'form':formInstrumType()}
+    if request.method=='POST':
+        formulario=formInstrumType(request.POST,files=request.FILES)
+        if formulario.is_valid:
+            #procedimiento para guardar en la base de datos
+            formulario.save()
+            #mensaje de confirmación
+            return redirect('viewdisco')
+    return render(request,'administrador/typeInstrumAdd.html',context)
+
 
 
            

@@ -1,0 +1,22 @@
+{% extends "administrador/base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    <div class="container min-vh-100 d-flex justify-content-center">
+        <div class="row">
+            <div class="col align-self-center"> 
+                <form
+                    method="post"
+                    class="shadow p-4 bg-body-tertiary rounded"
+                    style="background-color: white" enctype="multipart/form-data">
+                    <h2>Ingreso nuevo tipo de instrumento</h2>
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                    <a type="button" href="{% url 'viewinstrum'%}" class="btn btn-primary">Volver</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

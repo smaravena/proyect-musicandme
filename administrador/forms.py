@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from app.models import Disco,Instrumento
+from app.models import Disco,Instrumento,Tipo_instrumento,Genero
 
 class formDisco(ModelForm):
     class Meta:
@@ -26,3 +26,13 @@ class formInstrum(ModelForm):
                     'descripcion',      
                     'yt_iframe',       
         ]        
+class formGenre(ModelForm):
+    class Meta:
+        model = Genero
+        fields = ['id_genero',
+                  'genero',]         
+class formInstrumType(ModelForm):
+    class Meta:
+        model = Tipo_instrumento
+        fields=['id_tipo',
+                'tipo']
