@@ -69,19 +69,19 @@
     </div>
 </div>
 
-    <!-- FUNCION JQ PAUSAR MUSICA -->
+    <!-- FUNCION JQ PAUSAR VIDEO -->
     <script class="text/javascript">
-        function stopMusic(modalId) {
+        function stopVideo(modalId) {
           var modal = document.getElementById(modalId);
           var iframe = modal.querySelector('iframe');
-          var musicSrc = iframe.src;
-          //PAUSAR IFRAME DE SPOTIFY
-          iframe.src = musicSrc;
+          var videoSrc = iframe.src;
+          //PAUSAR IFRAME DE YOUTUBE
+          iframe.src = videoSrc;
         }
         var modals = document.querySelectorAll('.modal');
         modals.forEach(function (modal) {
           modal.addEventListener('focusout', function () {
-            stopMusic(modal.id);
+            stopVideo(modal.id);
           });
         });
       </script>
