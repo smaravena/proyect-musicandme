@@ -1,0 +1,59 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block contenido %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Carrito de Compras</h2>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center flex-wrap">
+                            <img src="{% static 'app/img/favicon.ico' %}" alt="IMAGEN_PRODUCTO" class="img-fluid" width="80" height="80">
+                            <span class="ms-3 text-truncate">Producto 1</span>
+                        </div>
+                        <span>
+                            <button class="btn btn-sm btn-secondary">-</button>
+                            <span>1</span>
+                            <button class="btn btn-sm btn-secondary">+</button>
+                            <span class="badge bg-primary rounded-pill">$100</span>
+                        </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center flex-wrap">
+                            <img src="{% static 'app/img/favicon.ico' %}" alt="IMAGEN_PRODUCTO" class="img-fluid" width="80" height="80">
+                            <span class="ms-3 text-truncate">Producto 2</span>
+                        </div>
+                        <span>
+                            <button class="btn btn-sm btn-secondary">-</button>
+                            <span>1</span>
+                            <button class="btn btn-sm btn-secondary">+</button>
+                            <span class="badge bg-primary rounded-pill">$100</span>
+                        </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center flex-wrap">
+                            <img src="{% static 'app/img/favicon.ico' %}" alt="IMAGEN_PRODUCTO" class="img-fluid" width="80" height="80">
+                            <span class="ms-3 text-truncate">Producto 3</span>
+                        </div>
+                        <span>
+                            <button class="btn btn-sm btn-secondary">-</button>
+                            <span>1</span>
+                            <button class="btn btn-sm btn-secondary">+</button>
+                            <span class="badge bg-primary rounded-pill">$100</span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Total</h4>
+                        <p class="card-text">$450</p>
+                        <button class="btn btn-success btn-block">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

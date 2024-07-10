@@ -14,7 +14,7 @@ def instrumentos(request):
     return render(request, 'app/instrumentos.html')
 
 def carro(request):
-    return render(request, 'app/carro.html')
+    return render(request, 'app/lista_carro.html')
 
 def login(request):
     return render(request, 'app/login.html')
