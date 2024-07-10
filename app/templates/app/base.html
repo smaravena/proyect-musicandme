@@ -18,7 +18,7 @@
   <body>
     <div class="content">
       <!-- navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+      <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-4">
         <div class="container-fluid">
           <img
             src="{% static 'app/img/favicon.ico' %}"
@@ -69,14 +69,13 @@
 
       <!-- fin navbar -->
       <div id="contenido">
-        <br>
         {% block contenido %}
         {% endblock %}
       </div>
     </div>
 
     <!-- footer -->
-    <footer class="footer-bg footer">
+    <footer class="footer-bg footer mt-5">
       <div class="container" --bs-dark-bg-subtle>
         <div class="row">
           <div class="col-lg-4">
