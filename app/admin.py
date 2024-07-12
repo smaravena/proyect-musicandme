@@ -8,3 +8,9 @@ admin.site.register(Tipo_instrumento)
 admin.site.register(Instrumento)
 admin.site.register(Carrito)
 admin.site.register(ElementoCarrito)
+
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
+# AÑADIR LOS REGISTROS DE ADMIN PARA QUE SALGAN EN DJANGO ADMIN SITE
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
