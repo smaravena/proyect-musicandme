@@ -19,6 +19,9 @@
                         <p class="card-text">
                             Precio: ${{ disco.precio }}
                         </p>
+                        <p class="card-text">
+                            Stock: {{ disco.stock }}
+                        </p>
                         <A type="button" class="btn btn-warning" href="{% url 'discoedit' pk=disco.id_disco %}">
                                 Modificar</a>
                         <a type="button" class="btn btn-danger" href="{% url 'discodelete' pk=disco.id_disco %}">
