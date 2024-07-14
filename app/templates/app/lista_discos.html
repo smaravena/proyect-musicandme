@@ -24,7 +24,7 @@
 
     <div class="row">
         {% for disco in discos %}
-            {%if disco.stock > 0%}
+            {% if disco.stock > 0 %}
                 <div class="col-md-auto mb-4">
                     <div class="card mx-auto" style="width: 18rem;">
                         {% if disco.imagen %}
@@ -36,7 +36,13 @@
                                 Precio: ${{ disco.precio }}
                             </p>
                             <p>Stock: {{ disco.stock }}</p>
-                            <a href="#" class="btn btn-success">Añadir al carrito</a>
+                            <form class="add-to-cart-form">
+                                <input type="hidden" name="disco_id" value="{{ disco.id_disco }}">
+                                <div class="input-group mb-3">
+                                    <input type="number" name="cantidad" class="form-control" value="1" min="1">
+                                    <button type="button" class="btn btn-success add-to-cart" data-disco-id="{{ disco.id_disco }}">Añadir al carrito</button>
+                                </div>
+                            </form>
                             <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{ disco.id_disco }}">Detalles</a>
                         </div>
                     </div>
@@ -66,25 +72,51 @@
                         </div>
                     </div>
                 </div>
-            {% endif %}    
+            {% endif %}
         {% endfor %}
     </div>
 </div>
 
-    <!-- FUNCION JQ PAUSAR MUSICA -->
-    <script class="text/javascript">
-        function stopMusic(modalId) {
-          var modal = document.getElementById(modalId);
-          var iframe = modal.querySelector('iframe');
-          var musicSrc = iframe.src;
-          //PAUSAR IFRAME DE SPOTIFY
-          iframe.src = musicSrc;
-        }
-        var modals = document.querySelectorAll('.modal');
-        modals.forEach(function (modal) {
-          modal.addEventListener('focusout', function () {
-            stopMusic(modal.id);
-          });
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.add-to-cart').click(function(event) {
+            event.preventDefault();
+            var discoId = $(this).data('disco-id');
+            var cantidad = $(this).closest('.add-to-cart-form').find('input[name="cantidad"]').val();
+            $.ajax({
+                url: "{% url 'CarroAdd' %}",
+                type: "POST",
+                data: {
+                    disco_id: discoId,
+                    cantidad: cantidad,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    alert(response.mensaje);
+                },
+                error: function(response) {
+                    alert('Error al agregar el elemento al carrito.');
+                }
+            });
         });
-      </script>
+    });
+</script>
+ <!-- FUNCION JQ PAUSAR MUSICA -->
+ <script class="text/javascript">
+    function stopMusic(modalId) {
+      var modal = document.getElementById(modalId);
+      var iframe = modal.querySelector('iframe');
+      var musicSrc = iframe.src;
+      //PAUSAR IFRAME DE SPOTIFY
+      iframe.src = musicSrc;
+    }
+    var modals = document.querySelectorAll('.modal');
+    modals.forEach(function (modal) {
+      modal.addEventListener('focusout', function () {
+        stopMusic(modal.id);
+      });
+    });
+  </script>
 {% endblock %}
+
