@@ -88,15 +88,7 @@ def agregar_al_carrito(request):
             return JsonResponse({'mensaje': 'Error al agregar el elemento al carrito.'}, status=500)
 
     return JsonResponse({'mensaje': 'Solicitud inválida'}, status=400)
-def ver_carrito(request):
-    session_key = request.session.session_key
-    if not session_key:
-        request.session.create()
-        session_key = request.session.session_key
-    
-    carrito = Carrito.objects.filter(session_key=session_key).first()
-    context = {'carrito': carrito}
-    return render(request, 'app/ver_carrito.html', context)
+
 def confirmar_compra(request):
     session_key = request.session.session_key
     if not session_key:
@@ -104,12 +96,20 @@ def confirmar_compra(request):
         session_key = request.session.session_key
 
     carrito = get_object_or_404(Carrito, session_key=session_key)
-    
+    elementos = carrito.elementos.all()
+    total = 0
+    for elemento in elementos:
+        if elemento.disco:
+            elemento.subtotal = elemento.cantidad * elemento.disco.precio
+        elif elemento.instrumento:
+            elemento.subtotal = elemento.cantidad * elemento.instrumento.precio
+        total += elemento.subtotal
+
     if request.method == 'POST':
         form = CarritoForm(request.POST, instance=carrito)
         if form.is_valid():
             with transaction.atomic():
-                for elemento in carrito.elementos.all():
+                for elemento in elementos:
                     if elemento.disco:
                         disco = elemento.disco
                         if elemento.cantidad > disco.stock:
@@ -129,5 +129,5 @@ def confirmar_compra(request):
     else:
         form = CarritoForm(instance=carrito)
 
-    return render(request, 'app/carro.html', {'form': form, 'carrito': carrito})
+    return render(request, 'app/carro.html', {'form': form, 'carrito': carrito, 'elementos': elementos, 'total': total})
 
