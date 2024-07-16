@@ -53,7 +53,6 @@ def lista_instrumentos(request):
     return render(request, 'app/lista_instrumentos.html', {'instrumento': instrumentos,'tipos': tipos})
 
 @csrf_exempt
-
 def agregar_al_carrito(request):
     if request.method == 'POST':
         session_key = request.session.session_key
@@ -62,10 +61,17 @@ def agregar_al_carrito(request):
             session_key = request.session.session_key
         
         disco_id = request.POST.get('disco_id')
+        instrum_id = request.POST.get('instrum_id')
         cantidad = int(request.POST.get('cantidad', 1))  # Por defecto 1 si no se especifica cantidad
-        disco = get_object_or_404(Disco, id_disco=disco_id)
 
-        if cantidad > disco.stock:
+        if disco_id:
+            producto = get_object_or_404(Disco, id_disco=disco_id)
+        elif instrum_id:
+            producto = get_object_or_404(Instrumento, id_instrumento=instrum_id)
+        else:
+            return JsonResponse({'mensaje': 'No se especificó un producto válido.'}, status=400)
+
+        if cantidad > producto.stock:
             return JsonResponse({'mensaje': 'Cantidad solicitada excede el stock disponible.'}, status=400)
         
         carrito, created = Carrito.objects.get_or_create(session_key=session_key)
@@ -73,12 +79,13 @@ def agregar_al_carrito(request):
         try:
             elemento, elemento_created = ElementoCarrito.objects.get_or_create(
                 carrito=carrito,
-                disco=disco,
+                disco=producto if isinstance(producto, Disco) else None,
+                instrumento=producto if isinstance(producto, Instrumento) else None,
                 defaults={'cantidad': cantidad}
             )
         
             if not elemento_created:
-                if elemento.cantidad + cantidad > disco.stock:
+                if elemento.cantidad + cantidad > producto.stock:
                     return JsonResponse({'mensaje': 'Cantidad total solicitada excede el stock disponible.'}, status=400)
                 elemento.cantidad += cantidad
                 elemento.save()
@@ -88,6 +95,7 @@ def agregar_al_carrito(request):
             return JsonResponse({'mensaje': 'Error al agregar el elemento al carrito.'}, status=500)
 
     return JsonResponse({'mensaje': 'Solicitud inválida'}, status=400)
+
 
 def confirmar_compra(request):
     session_key = request.session.session_key

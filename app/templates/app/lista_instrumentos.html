@@ -1,5 +1,4 @@
 {% extends "app/base.html" %}
-
 {% load static %}
 
 {% block contenido %}
@@ -36,7 +35,10 @@
                                 Precio: ${{ instrum.precio }}
                             </p>
                             <p>Stock: {{ instrum.stock }}</p>
-                            <a href="#" class="btn btn-success">Añadir al carrito</a>
+                            <form class="add-to-cart-form">
+                                <input type="number" name="cantidad" value="1" min="1" max="{{ instrum.stock }}" class="form-control mb-2">
+                                <a href="#" class="btn btn-success add-to-cart" data-instrum-id="{{ instrum.id_instrumento }}">Añadir al carrito</a>
+                            </form>
                             <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{ instrum.id_instrumento }}">Detalles</a>
                         </div>
                     </div>
@@ -52,7 +54,7 @@
                             </div>
                             <div class="modal-body">
                                 <p>{{ instrum.descripcion }}</p>
-                                <p>Categoria: {{ instrum.id_tipo}}</p>
+                                <p>Categoría: {{ instrum.id_tipo }}</p>
                                 <p>Precio: ${{ instrum.precio }}</p>
                                 {% if instrum.yt_iframe %}
                                     <div class="embed-responsive embed-responsive-16by9 video-container">
@@ -71,6 +73,31 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.add-to-cart').click(function(event) {
+            event.preventDefault();
+            var instrumId = $(this).data('instrum-id');
+            var cantidad = $(this).closest('.add-to-cart-form').find('input[name="cantidad"]').val();
+            $.ajax({
+                url: "{% url 'CarroAdd' %}",
+                type: "POST",
+                data: {
+                    instrum_id: instrumId,
+                    cantidad: cantidad,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    alert(response.mensaje);
+                },
+                error: function(response) {
+                    alert('Error al agregar el elemento al carrito.');
+                }
+            });
+        });
+    });
+</script>
     <!-- FUNCION JQ PAUSAR VIDEO -->
     <script class="text/javascript">
         function stopVideo(modalId) {
@@ -87,4 +114,5 @@
           });
         });
       </script>
+{% endblock %}
 {% endblock %}
