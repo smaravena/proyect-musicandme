@@ -133,6 +133,7 @@ def confirmar_compra(request):
                 form.save()
                 carrito.fecha_modificacion = timezone.now()
                 carrito.save()
+            request.session.flush()
             return redirect('inicio')  # Redirigir a una página de éxito después de confirmar la compra
     else:
         form = CarritoForm(instance=carrito)

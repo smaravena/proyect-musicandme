@@ -1,34 +1,64 @@
-
 {% extends "app/base.html" %}
 {% load static %}
 
 {% block contenido %}
-<div class="container">
-    <h1>Confirmar Compra</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Confirmar Compra</button>
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                <h1>Confirmar Compra</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Confirmar Compra</button>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                <h2>Carrito de Compras</h2>
+                <ul class="list-group">
+                    {% for elemento in elementos %}
+                    {% if elemento.disco %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center flex-wrap">
+                            <img src="{{ elemento.disco.imagen.url }}" alt="IMAGEN_PRODUCTO" class="img-fluid" width="80" height="80">
+                            <div class="ms-3">
+                                <span class="d-block text-truncate">{{ elemento.disco.nombre }}</span>
+                                <span class="d-block small text-muted">x{{ elemento.cantidad }}</span>
+                            </div>
+                        </div>
+                        <span>
+                            <span class="badge bg-primary rounded-pill">${{ elemento.subtotal }}</span>
+                        </span>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
 
-    <h2>Elementos en el Carrito</h2>
-    <ul>
-        {% for elemento in elementos %}
-            <li>
-                {% if elemento.disco %}
-                    {{ elemento.disco.nombre }} - Cantidad: {{ elemento.cantidad }} - 
-                    Precio Unitario: ${{ elemento.disco.precio }} - 
-                    Subtotal: ${{ elemento.subtotal }}
-                {% elif elemento.instrumento %}
-                    {{ elemento.instrumento.nombre }} - Cantidad: {{ elemento.cantidad }} - 
-                    Precio Unitario: ${{ elemento.instrumento.precio }} - 
-                    Subtotal: ${{ elemento.subtotal }}
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
-    <h3>Total: ${{ total }}</h3>
-</div>
+                    {% for elemento in elementos %}
+                    {% if elemento.instrumento %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center flex-wrap">
+                            <img src="{{ elemento.instrumento.imagen.url }}" alt="IMAGEN_PRODUCTO" class="img-fluid" width="80" height="80">
+                            <span class="ms-3 text-truncate">{{ elemento.instrumento.nombre }}</span>
+                        </div>
+                        <span>
+                            <button class="btn btn-sm btn-secondary">-</button>
+                            <span>Qty: {{ elemento.cantidad }}</span>
+                            <button class="btn btn-sm btn-secondary">+</button>
+                            <span class="badge bg-primary rounded-pill">${{ elemento.subtotal }}</span>
+                        </span>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="mt-2">
+                            <div class="card-body">
+                                <h4 class="card-title">Total</h4>
+                                <p class="card-text">${{ total }}</p>
+                                <button class="btn btn-success btn-block mb-2">Comprar</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}
-
-
