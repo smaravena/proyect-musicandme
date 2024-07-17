@@ -12,6 +12,7 @@ urlpatterns = [
     path('lista_instrumentos',lista_instrumentos, name='lista_instrumentos'),
     path('confirmar_compra',confirmar_compra,name='confirmar_compra'),
     path ('agregar',agregar_al_carrito,name='CarroAdd'),
-    path('Delete',CarroDelete,name='CarroDel'),
+    path('carrito/eliminar/<int:elemento_id>/', CarroDelete, name='CarroDelete'),
 ]
+
 

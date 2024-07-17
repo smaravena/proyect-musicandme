@@ -147,7 +147,7 @@ def CarroDelete(request, elemento_id):
         # Eliminar el elemento del carrito
         elemento.delete()
 
-        return JsonResponse({'mensaje': 'Elemento eliminado del carrito correctamente.'})
+        return redirect('carro')  # Redirigir a la página del carrito después de eliminar un elemento
 
     return JsonResponse({'mensaje': 'Solicitud inválida.'}, status=400)
 
