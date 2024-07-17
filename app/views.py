@@ -99,10 +99,6 @@ def agregar_al_carrito(request):
 
 def confirmar_compra(request):
     session_key = request.session.session_key
-    if not session_key:
-        request.session.create()
-        session_key = request.session.session_key
-
     carrito = get_object_or_404(Carrito, session_key=session_key)
     elementos = carrito.elementos.all()
     total = 0
