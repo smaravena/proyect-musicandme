@@ -138,4 +138,15 @@ def confirmar_compra(request):
         form = CarritoForm(instance=carrito)
 
     return render(request, 'app/carro.html', {'form': form, 'carrito': carrito, 'elementos': elementos, 'total': total})
+def CarroDelete(request, elemento_id):
+    if request.method == 'POST':
+        carrito = get_object_or_404(Carrito, session_key=request.session.session_key)
+        elemento = get_object_or_404(ElementoCarrito, id=elemento_id, carrito=carrito)
+
+        # Eliminar el elemento del carrito
+        elemento.delete()
+
+        return JsonResponse({'mensaje': 'Elemento eliminado del carrito correctamente.'})
+
+    return JsonResponse({'mensaje': 'Solicitud inválida.'}, status=400)
 
