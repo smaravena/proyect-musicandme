@@ -36,8 +36,11 @@
                             </p>
                             <p>Stock: {{ instrum.stock }}</p>
                             <form class="add-to-cart-form">
-                                <input type="number" name="cantidad" value="1" min="1" max="{{ instrum.stock }}" class="form-control mb-2">
-                                <a href="#" class="btn btn-success add-to-cart" data-instrum-id="{{ instrum.id_instrumento }}">Añadir al carrito</a>
+                                <input type="hidden" name="disco_id" value="{{ disco.id_disco }}">
+                                <div class="input-group mb-3">
+                                    <button type="button" class="btn btn-success add-to-cart" data-disco-id="{{ disco.id_disco }}">Añadir al carrito</button>
+                                    <input type="number" name="cantidad" class="form-control" value="1" min="1">
+                                </div>
                             </form>
                             <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{ instrum.id_instrumento }}">Detalles</a>
                         </div>
