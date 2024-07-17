@@ -40,7 +40,7 @@
                                 <input type="hidden" name="disco_id" value="{{ disco.id_disco }}">
                                 <div class="input-group mb-3">
                                     <button type="button" class="btn btn-success add-to-cart" data-disco-id="{{ disco.id_disco }}">Añadir al carrito</button>
-                                    <input type="number" name="cantidad" class="form-control" value="1" min="1">
+                                    <input type="number" name="cantidad" class="form-control" value="1" min="1" max="{{ disco.stock }}">
                                 </div>
                             </form>
                             <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{ disco.id_disco }}">Detalles</a>
