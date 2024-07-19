@@ -52,16 +52,24 @@
         </div>
     </div>
 
-    <!-- MENOS VARIABLES -->
-    <!-- DOMContentLoaded asegura que el contenido de la pagweb haya cargado con antelacion-->
+    <!-- DOMContentLoaded ASEGURA CARGAR CONTENIDO COMPLETAMENTE -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var confirmDeleteModal = document.getElementById('confirmDeleteModal');
-            confirmDeleteModal.addEventListener('show.bs.modal', function (event) {
-                var button = event.relatedTarget;
-                var url = button.getAttribute('data-bs-url');
-                var confirmDeleteButton = document.getElementById('confirmDeleteButton');
-                confirmDeleteButton.setAttribute('href', url);
+            var deleteButtons = document.querySelectorAll('.btn-delete');
+            var confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+            var confirmDeleteButton = document.getElementById('confirmDeleteButton');
+            var currentDeleteUrl;
+
+            deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    currentDeleteUrl = this.getAttribute('data-url');
+                    confirmDeleteModal.show();
+                });
+            });
+
+            confirmDeleteButton.addEventListener('click', function() {
+                window.location.href = currentDeleteUrl;
             });
         });
     </script>
